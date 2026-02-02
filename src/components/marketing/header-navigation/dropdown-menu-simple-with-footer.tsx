@@ -1,39 +1,51 @@
 "use client";
 
-import { BookClosed, FileCode01, LifeBuoy01, PlayCircle, Stars02 } from "@untitledui/icons";
+import { Car01, Tool02, Scan, VideoRecorder, Globe01, ShoppingCart01, BarChart03 } from "@untitledui/icons";
 import { Button } from "@/components/base/buttons/button";
 import { NavMenuItemLink } from "./base-components/nav-menu-item";
 
 const items = [
     {
-        title: "Blog",
-        subtitle: "The latest industry new and guides curated by our expert team.",
-        href: "/blog",
-        Icon: BookClosed,
+        title: "VinLane IMS",
+        subtitle: "Intelligent inventory management with real-time tracking and analytics.",
+        href: "/products/vinlane",
+        Icon: Car01,
     },
     {
-        title: "Customer stories",
-        subtitle: "Learn how our customers are using Untitled UI to 10x their growth.",
-        href: "/customer-stories",
-        Icon: Stars02,
+        title: "VinTraxx Recon",
+        subtitle: "Streamline reconditioning with digital task management and vendor coordination.",
+        href: "/products/recon",
+        Icon: Tool02,
     },
     {
-        title: "Video tutorials",
-        subtitle: "Get up and running on our newest features and in-depth guides.",
-        href: "/tutorials",
-        Icon: PlayCircle,
+        title: "SmartScan",
+        subtitle: "Advanced OBD diagnostics and AI-powered vehicle appraisals.",
+        href: "/products/smartscan",
+        Icon: Scan,
     },
     {
-        title: "Documentation",
-        subtitle: "In-depth articles on our tools and technologies to empower teams.",
-        href: "/docs",
-        Icon: FileCode01,
+        title: "VinClips",
+        subtitle: "Daily automated video marketing for TikTok, Facebook, and Instagram.",
+        href: "/products/vinclips",
+        Icon: VideoRecorder,
     },
     {
-        title: "Help and support",
-        subtitle: "Need help with something? Our expert team is here to help 24/7.",
-        href: "/help",
-        Icon: LifeBuoy01,
+        title: "VinTraxx Websites",
+        subtitle: "Professional dealer websites that convert visitors into leads.",
+        href: "/products/websites",
+        Icon: Globe01,
+    },
+    {
+        title: "Auto Mall",
+        subtitle: "Customer marketplace with real-time demand insights.",
+        href: "/products/automall",
+        Icon: ShoppingCart01,
+    },
+    {
+        title: "Acquisition.io",
+        subtitle: "AI-powered vehicle consignment and sourcing platform.",
+        href: "/products/acquisition",
+        Icon: BarChart03,
     },
 ];
 
@@ -49,8 +61,8 @@ export const DropdownMenuSimpleWithFooter = () => {
                     ))}
                 </ul>
                 <div className="px-4 py-5 text-center sm:px-5">
-                    <Button href="#" color="link-color" size="lg">
-                        All resources
+                    <Button href="/products" color="link-color" size="lg">
+                        View all products
                     </Button>
                 </div>
             </nav>

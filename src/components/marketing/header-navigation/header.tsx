@@ -20,9 +20,9 @@ type HeaderNavItem = {
 
 const headerNavItems: HeaderNavItem[] = [
     { label: "Products", href: "/products", menu: <DropdownMenuSimpleWithFooter /> },
-    { label: "Services", href: "/Services", menu: <DropdownMenuFeatureCard /> },
+    { label: "Services", href: "/services", menu: <DropdownMenuFeatureCard /> },
     { label: "Pricing", href: "/pricing" },
-    { label: "Resources", href: "/resources", menu: <DropdownMenuWithTwoColsAndLinksAndFooter /> },
+    // { label: "Resources", href: "/resources", menu: <DropdownMenuWithTwoColsAndLinksAndFooter /> },
     { label: "About", href: "/about" },
 ];
 
@@ -82,7 +82,7 @@ const MobileFooter = () => {
                 </ul>
             </div>
             <div className="flex flex-col gap-3">
-                <Button size="lg">Sign up</Button>
+                <Button size="lg">Request a Demo</Button>
                 <Button color="secondary" size="lg">
                     Log in
                 </Button>
@@ -183,7 +183,7 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                             Log in
                         </Button>
                         <Button color="primary" size={isFloating ? "md" : "lg"}>
-                            Sign up
+                            Request a Demo
                         </Button>
                     </div>
 

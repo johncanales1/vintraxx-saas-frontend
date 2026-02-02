@@ -1,15 +1,16 @@
 "use client";
 
-import { BookClosed, FileCode01, PlayCircle, Stars02 } from "@untitledui/icons";
+import { Headphones01, Settings02, Users01, MessageChatCircle } from "@untitledui/icons";
 import { Button } from "@/components/base/buttons/button";
 import { NavMenuItemLink } from "./base-components/nav-menu-item";
 import { FeatureCardVertical } from "./base-components/nav-menu-item-card";
+import serviceImage from "@/assets/images/writings/image1.png";
 
 const items = [
-    { title: "Blog", subtitle: "The latest industry new and guides curated by our expert team.", href: "/", Icon: BookClosed },
-    { title: "Customer stories", subtitle: "Learn how our customers are using Untitled UI to 10x their growth.", href: "/", Icon: Stars02 },
-    { title: "Video tutorials", subtitle: "Get up and running on our newest features and in-depth guides.", href: "/", Icon: PlayCircle },
-    { title: "Documentation", subtitle: "In-depth articles on our tools and technologies to empower teams.", href: "/", Icon: FileCode01 },
+    { title: "Implementation", subtitle: "Expert onboarding and setup to get your dealership running smoothly.", href: "/services/implementation", Icon: Settings02 },
+    { title: "Training", subtitle: "Comprehensive training for your team on all VinTraxx products.", href: "/services/training", Icon: Users01 },
+    { title: "Support", subtitle: "24/7 dedicated support from our expert team.", href: "/services/support", Icon: Headphones01 },
+    { title: "Consulting", subtitle: "Strategic guidance to maximize your dealership's performance.", href: "/services/consulting", Icon: MessageChatCircle },
 ];
 
 export const DropdownMenuFeatureCard = () => {
@@ -25,17 +26,14 @@ export const DropdownMenuFeatureCard = () => {
                 </ul>
                 <div className="bg-secondary px-1 pt-2 pb-3 md:max-w-76 md:px-2">
                     <FeatureCardVertical
-                        href="#"
-                        imgSrc="https://www.untitledui.com/marketing/smiling-girl.webp"
-                        title="We've just released an update!"
-                        description="Check out the all new dashboard view. Pages now load up to 3x faster."
+                        href="/services"
+                        imgSrc={serviceImage.src}
+                        title="Meet us at NADA 2026!"
+                        description="Visit booth #7061N to see VinTraxx products in action."
                         actionsContent={
                             <div className="inline-flex gap-3">
-                                <Button color="link-gray" size="sm">
-                                    Dismiss
-                                </Button>
                                 <Button color="link-color" size="sm">
-                                    Changelog
+                                    Schedule Meeting
                                 </Button>
                             </div>
                         }

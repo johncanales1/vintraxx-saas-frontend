@@ -13,7 +13,7 @@ export const UntitledLogo = (props: HTMLAttributes<HTMLOrSVGElement>) => {
             <Image src={miniLogo} alt="Logo" className="h-full w-auto shrink-0 -translate-y-0.5" />
 
             {/* Label */}
-            <Image src={labelLogo} alt="Vintraxx" className="h-3/5 w-auto shrink-0" />
+            <Image src={labelLogo} alt="Vintraxx" className="h-3/5 w-auto shrink-0 dark:brightness-0 dark:invert" />
         </div>
     );
 };
