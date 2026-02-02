@@ -1,0 +1,1 @@
+This is VinTraxx SaaS Frontend Application.
