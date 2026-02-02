@@ -208,7 +208,7 @@ const FeaturesTabsMockup07 = () => {
 
                     <div className="relative -ml-4 w-screen md:w-full lg:h-140">
                         <div className="-mx-4 flex items-center justify-center lg:absolute lg:mr-9.5 lg:-ml-0 lg:h-140 lg:w-[50vw] lg:justify-start">
-                            {/* Light mode image (hidden in dark mode) */}
+                            {/* Light mode image (hidden in dark mode) testing */}
                             <img
                                 src={macBookImageLight.src}
                                 alt="MacBook Pro displaying a professional application interface with modern design and functionality"
