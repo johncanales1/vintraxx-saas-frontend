@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { useRef, useState } from "react";
+import Link from "next/link";
 import { ChevronDown } from "@untitledui/icons";
 import { Button as AriaButton, Dialog as AriaDialog, DialogTrigger as AriaDialogTrigger, Popover as AriaPopover } from "react-aria-components";
 import { Button } from "@/components/base/buttons/button";
@@ -119,8 +120,10 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                     )}
                 >
                     <div className="flex flex-1 items-center gap-5">
-                        <UntitledLogo className="h-10 md:max-lg:hidden" />
-                        <UntitledLogoMinimal className="hidden h-14 md:inline-block lg:hidden" />
+                        <Link href="/" className="flex items-center">
+                            <UntitledLogo className="h-10 md:max-lg:hidden" />
+                            <UntitledLogoMinimal className="hidden h-14 md:inline-block lg:hidden" />
+                        </Link>
 
                         {/* Desktop navigation */}
                         <nav className="max-md:hidden">
