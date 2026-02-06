@@ -12,22 +12,6 @@ import { Header } from "@/components/marketing/header-navigation/header";
 import { SectionDivider } from "@/components/shared-assets/section-divider";
 import { cx } from "@/utils/cx";
 import { isReactComponent } from "@/utils/is-react-component";
-import Link from "next/link";
-import videoThumbnail from "@/assets/videos/thumbnail.png";
-import acquisitionLogo from "@/assets/logo/brands/acquisition.png";
-import automallLogo from "@/assets/logo/brands/automall.png";
-import reconLogo from "@/assets/logo/brands/recon.png";
-import smartscanLogo from "@/assets/logo/brands/smartscan.png";
-import vinclipsLogo from "@/assets/logo/brands/vinclips.png";
-import vinlaneLogo from "@/assets/logo/brands/vinlane.png";
-import websiteLogo from "@/assets/logo/brands/website.png";
-import writingImage1 from "@/assets/images/writings/image1.png";
-import writingImage2 from "@/assets/images/writings/image2.png";
-import writingImage3 from "@/assets/images/writings/image3.png";
-import writingImage4 from "@/assets/images/writings/image4.png";
-import dashboardImage from "@/assets/images/dashboard.png";
-import macBookImageDark from "@/assets/images/macbook/mackbook-pro-screen-mockup-dark.png";
-import macBookImageLight from "@/assets/images/macbook/mackbook-pro-screen-mockup-light.png";
 
 const HeaderPrimary = (props: ComponentProps<typeof Header>) => {
     return (
@@ -74,24 +58,24 @@ const HeroAbstractAngles01 = () => {
                         <div className="flex flex-col items-start sm:items-center sm:text-center">
                             <a href="#" className="rounded-full outline-focus-ring focus-visible:outline-2 focus-visible:outline-offset-2">
                                 <BadgeGroup className="hidden md:flex" size="lg" addonText="New feature" iconTrailing={ArrowRight} theme="light" color="brand">
-                                    AI-Powered Vehicle Consignment
+                                    Check out the team dashboard
                                 </BadgeGroup>
                                 <BadgeGroup className="md:hidden" size="md" addonText="New feature" iconTrailing={ArrowRight} theme="light" color="brand">
-                                    AI-Powered Vehicle Consignment
+                                    Check out the team dashboard
                                 </BadgeGroup>
                             </a>
 
                             <h1 className="mt-4 text-display-md font-semibold text-brand-primary md:text-display-lg lg:text-display-xl">
-                                The Smarter Way to Stock a Dealership
+                                High-performing remote teams. <br /> The future of work.
                             </h1>
                             <p className="mt-4 max-w-3xl text-lg text-brand-secondary md:mt-6 md:text-xl">
-                                A modern approach to choosing the right vehicles—using real demand data, faster sourcing, and smarter pricing - so you sell more, reduce aging inventory, and improve profit.
+                                Powerful, self-serve team engagement tools and analytics. Supercharge your managers & keep employees engaged from anywhere.
                             </p>
                             <div className="relative z-1 mt-8 flex w-full flex-col-reverse items-stretch gap-3 sm:w-auto sm:flex-row sm:items-start md:mt-12">
                                 <Button iconLeading={PlayCircle} color="secondary" size="xl">
-                                    Request a Demo
+                                    Demo
                                 </Button>
-                                {/* <Button size="xl">Sign up</Button> */}
+                                <Button size="xl">Sign up</Button>
                             </div>
                         </div>
                     </div>
@@ -105,8 +89,8 @@ const HeroAbstractAngles01 = () => {
                         <div className="flex justify-center">
                             <VideoPlayer
                                 size="lg"
-                                thumbnailUrl={videoThumbnail.src}
-                                src="/assets/videos/intro.mp4"
+                                thumbnailUrl="https://www.untitledui.com/marketing/video-thumbnail.webp"
+                                src="https://www.untitledui.com/videos/untitled-ui-demo.mp4"
                                 className="aspect-video w-full overflow-hidden rounded-xl shadow-3xl md:max-w-240"
                             />
                         </div>
@@ -122,15 +106,47 @@ const SocialProofFullWidth = () => {
         <section className="bg-primary pb-16 md:pb-24">
             <div className="mx-auto max-w-container px-4 md:px-8">
                 <div className="flex flex-col gap-8">
-                    <p className="text-center text-md font-medium text-tertiary">Join 7+ AI-Powered Products</p>
-                    <div className="flex flex-wrap justify-center gap-x-10 gap-y-6 xl:gap-x-8">
-                        <img alt="Acquisition" src={acquisitionLogo.src} className="h-12 md:h-16" />
-                        <img alt="Automall" src={automallLogo.src} className="h-12 md:h-16" />
-                        <img alt="Recon" src={reconLogo.src} className="h-12 md:h-16" />
-                        <img alt="SmartScan" src={smartscanLogo.src} className="h-12 md:h-16" />
-                        <img alt="VinClips" src={vinclipsLogo.src} className="h-12 md:h-16" />
-                        <img alt="VinLane" src={vinlaneLogo.src} className="h-12 md:h-16" />
-                        <img alt="Website" src={websiteLogo.src} className="h-12 md:h-16" />
+                    <p className="text-center text-md font-medium text-tertiary">Join 4,000+ companies already growing</p>
+                    <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 xl:gap-x-6">
+                        {/* Light mode images (hidden in dark mode) */}
+                        <img alt="Odeaolabs" src="https://www.untitledui.com/logos/logotype/color/odeaolabs.svg" className="h-9 md:h-12 dark:hidden" />
+                        <img alt="Kintsugi" src="https://www.untitledui.com/logos/logotype/color/kintsugi.svg" className="h-9 md:h-12 dark:hidden" />
+                        <img alt="Stackedlab" src="https://www.untitledui.com/logos/logotype/color/stackedlab.svg" className="h-9 md:h-12 dark:hidden" />
+                        <img alt="Magnolia" src="https://www.untitledui.com/logos/logotype/color/magnolia.svg" className="h-9 md:h-12 dark:hidden" />
+                        <img alt="Warpspeed" src="https://www.untitledui.com/logos/logotype/color/warpspeed.svg" className="h-9 md:h-12 dark:hidden" />
+                        <img alt="Sisyphus" src="https://www.untitledui.com/logos/logotype/color/sisyphus.svg" className="h-9 md:h-12 dark:hidden" />
+
+                        {/* Dark mode images (hidden in light mode) */}
+                        <img
+                            alt="Odeaolabs"
+                            src="https://www.untitledui.com/logos/logotype/white/odeaolabs.svg"
+                            className="h-9 opacity-85 not-dark:hidden md:h-12"
+                        />
+                        <img
+                            alt="Kintsugi"
+                            src="https://www.untitledui.com/logos/logotype/white/kintsugi.svg"
+                            className="h-9 opacity-85 not-dark:hidden md:h-12"
+                        />
+                        <img
+                            alt="Stackedlab"
+                            src="https://www.untitledui.com/logos/logotype/white/stackedlab.svg"
+                            className="h-9 opacity-85 not-dark:hidden md:h-12"
+                        />
+                        <img
+                            alt="Magnolia"
+                            src="https://www.untitledui.com/logos/logotype/white/magnolia.svg"
+                            className="h-9 opacity-85 not-dark:hidden md:h-12"
+                        />
+                        <img
+                            alt="Warpspeed"
+                            src="https://www.untitledui.com/logos/logotype/white/warpspeed.svg"
+                            className="h-9 opacity-85 not-dark:hidden md:h-12"
+                        />
+                        <img
+                            alt="Sisyphus"
+                            src="https://www.untitledui.com/logos/logotype/white/sisyphus.svg"
+                            className="h-9 opacity-85 not-dark:hidden md:h-12"
+                        />
                     </div>
                 </div>
             </div>
@@ -168,11 +184,11 @@ const FeaturesTabsMockup07 = () => {
         <section className="overflow-hidden bg-primary py-16 md:py-24">
             <div className="mx-auto w-full max-w-container px-4 md:px-8">
                 <div className="flex w-full flex-col lg:max-w-3xl">
-                    <span className="text-sm font-semibold text-brand-secondary md:text-md">Full Suite of Tools</span>
+                    <span className="text-sm font-semibold text-brand-secondary md:text-md">Hire faster</span>
 
-                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">Everything You Need, All in One Platform</h2>
+                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">A seamless experience for candidates</h2>
                     <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">
-                        Stop jumping between tools. VinTraxx brings together inventory management, reconditioning, diagnostics, and media production in one seamless ecosystem.
+                        Treat candidates with a rich careers site and a wonderful application process.{" "}
                     </p>
                 </div>
 
@@ -180,16 +196,17 @@ const FeaturesTabsMockup07 = () => {
                     <ul className="flex flex-col">
                         {[
                             {
-                                title: "VinLane IMS - Master Your Inventory",
-                                subtitle: "Real-time inventory tracking across multiple lots, floorplan optimization, and one-click syncing to marketplaces.",
+                                title: "Share team inboxes",
+                                subtitle: "Whether you have a team of 2 or 200, our shared team inboxes keep everyone on the same page and in the loop.",
                             },
                             {
-                                title: "VinTraxx Recon - Streamline Reconditioning",
-                                subtitle: "Digital task management, vendor coordination, real-time cost tracking, and photo documentation to get vehicles frontline-ready faster.",
+                                title: "Deliver instant answers",
+                                subtitle: "An all-in-one customer service platform that helps you balance everything your customers need to be happy.",
                             },
                             {
-                                title: "SmartScan - Appraise with Confidence",
-                                subtitle: "Advanced OBD scanning for comprehensive vehicle health assessments, professional reports, and AI-powered pricing recommendations.",
+                                title: "Manage your team with reports",
+                                subtitle:
+                                    "Measure what matters with Untitled's easy-to-use reports. You can filter, export, and drilldown on the data in a couple clicks.",
                             },
                         ].map((item, index) => (
                             <li key={item.title} onClick={() => setCurrentTab(index)}>
@@ -209,15 +226,15 @@ const FeaturesTabsMockup07 = () => {
 
                     <div className="relative -ml-4 w-screen md:w-full lg:h-140">
                         <div className="-mx-4 flex items-center justify-center lg:absolute lg:mr-9.5 lg:-ml-0 lg:h-140 lg:w-[50vw] lg:justify-start">
-                            {/* Light mode image (hidden in dark mode) testing */}
+                            {/* Light mode image (hidden in dark mode) */}
                             <img
-                                src={macBookImageLight.src}
+                                src="https://www.untitledui.com/marketing/screen-mockups/mackbook-pro-screen-mockup-light.webp"
                                 alt="MacBook Pro displaying a professional application interface with modern design and functionality"
                                 className="h-full object-contain lg:max-w-none dark:hidden"
                             />
                             {/* Dark mode image (hidden in light mode) */}
                             <img
-                                src={macBookImageDark.src}
+                                src="https://www.untitledui.com/marketing/screen-mockups/mackbook-pro-screen-mockup-dark.webp"
                                 alt="MacBook Pro displaying a professional application interface with modern design and functionality"
                                 className="h-full object-contain not-dark:hidden lg:max-w-none"
                             />
@@ -231,52 +248,31 @@ const FeaturesTabsMockup07 = () => {
 
 const studies = [
     {
-        company: "VinLane",
-        quote: "VinLane streamlined our vehicle sourcing process, cutting acquisition time by 40%.",
-        background: "bg-[#52A0BF]",
-        logo: vinlaneLogo.src,
+        company: "Layers",
+        quote: "Untitled has saved us thousands of hours of work. We're able to spin up projects faster.",
+        background: "bg-utility-brand-600",
+        logo: "https://www.untitledui.com/logos/logotype/white/layers.svg",
         href: "#",
     },
     {
-        company: "SmartScan",
-        quote: "AI-powered vehicle inspections have reduced our reconditioning costs significantly.",
-        background: "bg-[#33B87F]",
-        logo: smartscanLogo.src,
+        company: "Sisyphus",
+        quote: "We've been using Untitled to kick start every new project and can't work without it.",
+        background: "bg-utility-success-600",
+        logo: "https://www.untitledui.com/logos/logotype/white/sisyphus.svg",
         href: "#",
     },
     {
-        company: "Automall",
-        quote: "Our dealership inventory turnover improved by 35% with real-time demand insights.",
-        background: "bg-[#24A7F7]",
-        logo: automallLogo.src,
+        company: "Capsule",
+        quote: "Love the simplicity of the service and the prompt customer support.",
+        background: "bg-utility-blue-600",
+        logo: "https://www.untitledui.com/logos/logotype/white/capsule.svg",
         href: "#",
     },
     {
-        company: "Acquisition",
-        quote: "Smarter pricing and faster sourcing helped us maximize profit on every vehicle.",
-        background: "bg-[#6A65F7]",
-        logo: acquisitionLogo.src,
-        href: "#",
-    },
-    {
-        company: "Recon",
-        quote: "Recon tools helped us reduce vehicle turnaround time and boost service efficiency.",
-        background: "bg-[#EB3F3F]",
-        logo: reconLogo.src,
-        href: "#",
-    },
-    {
-        company: "VinClips",
-        quote: "Video marketing with VinClips increased our online engagement by 60%.",
-        background: "bg-[#A645ED]",
-        logo: vinclipsLogo.src,
-        href: "#",
-    },
-    {
-        company: "Website",
-        quote: "Our dealership website now converts 3x more leads with the new platform.",
-        background: "bg-[#06AFD1]",
-        logo: websiteLogo.src,
+        company: "Catalog",
+        quote: "Untitled has saved us thousands of hours of work. We're able to spin up projects faster.",
+        background: "bg-utility-indigo-600",
+        logo: "https://www.untitledui.com/logos/logotype/white/catalog.svg",
         href: "#",
     },
 ];
@@ -309,15 +305,15 @@ const TestimonialCaseStudyCards = () => {
             <div className="mx-auto max-w-container px-4 md:px-8">
                 <div className="flex flex-col justify-between gap-8 lg:flex-row lg:gap-0">
                     <div className="flex max-w-3xl flex-col gap-4 md:gap-5">
-                        <h2 className="text-display-sm font-semibold text-primary md:text-display-md">AI-Powered Products for Modern Dealerships</h2>
-                        <p className="text-lg text-tertiary md:text-xl">Discover how our suite of tools helps dealerships streamline operations and maximize profits.</p>
+                        <h2 className="text-display-sm font-semibold text-primary md:text-display-md">We've helped grow hundreds of companies</h2>
+                        <p className="text-lg text-tertiary md:text-xl">Case studies from some of our amazing customers who are building faster.</p>
                     </div>
 
                     <div className="flex flex-col-reverse gap-3 self-stretch sm:flex-row sm:self-start">
                         <Button color="secondary" size="xl">
-                            Explore Products
+                            Our customers
                         </Button>
-                        <Button size="xl">Request a Demo</Button>
+                        <Button size="xl">Create account</Button>
                     </div>
                 </div>
 
@@ -331,7 +327,7 @@ const TestimonialCaseStudyCards = () => {
                                     study.background,
                                 )}
                             >
-                                <img src={study.logo} alt={study.company} className="absolute top-6 left-6 h-14 object-contain md:top-8 md:left-8 md:h-22" />
+                                <img src={study.logo} alt={study.company} className="absolute top-6 left-6 h-10 object-contain md:top-8 md:left-8 md:h-12" />
 
                                 <div className="flex cursor-auto flex-col bg-alpha-white/30 px-4 py-5 ring-1 ring-alpha-white/30 backdrop-blur-md ring-inset md:p-5 md:px-6 md:py-8">
                                     <p className="text-display-xs font-semibold text-white md:text-display-sm">{study.company}</p>
@@ -364,15 +360,15 @@ const CTAScreenMockup03 = () => {
             <div className="mx-auto max-w-container px-4 md:px-8">
                 <div className="flex flex-col justify-center text-center">
                     <h2 className="text-display-sm font-semibold text-primary md:text-display-md">
-                        <span className="hidden md:inline">Ready to Transform Your Dealership?</span>
-                        <span className="md:hidden">Transform Your Dealership</span>
+                        <span className="hidden md:inline">Start your 30-day free trial</span>
+                        <span className="md:hidden">Start your free trial</span>
                     </h2>
-                    <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">Join dealerships already maximizing profits with VinTraxx.</p>
+                    <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">Join over 4,000+ startups already growing with Untitled.</p>
                     <div className="mt-8 flex flex-col-reverse gap-3 self-stretch md:flex-row md:self-center">
                         <Button color="secondary" size="xl">
                             Learn more
                         </Button>
-                        <Button size="xl">Request a Demo</Button>
+                        <Button size="xl">Get started</Button>
                     </div>
                 </div>
             </div>
@@ -382,13 +378,13 @@ const CTAScreenMockup03 = () => {
                         <div className="relative size-full overflow-hidden rounded-[6.77px] bg-utility-gray-50 ring-[0.56px] ring-utility-gray-200 md:rounded-[24px] md:ring-[2px]">
                             {/* Light mode image (hidden in dark mode) */}
                             <img
-                                src={dashboardImage.src}
+                                src="https://www.untitledui.com/marketing/screen-mockups/dashboard-desktop-mockup-light-01.webp"
                                 className="size-full object-cover dark:hidden"
                                 alt="Dashboard mockup showing application interface"
                             />
                             {/* Dark mode image (hidden in light mode) */}
                             <img
-                                src={dashboardImage.src}
+                                src="https://www.untitledui.com/marketing/screen-mockups/dashboard-desktop-mockup-dark-01.webp"
                                 className="size-full object-cover not-dark:hidden"
                                 alt="Dashboard mockup showing application interface"
                             />
@@ -424,63 +420,143 @@ type Article = {
 const articles: Article[] = [
     {
         id: "article-1",
-        title: "Maximizing Dealership Profits with AI-Powered Inventory",
-        summary: "Learn how AI-driven insights can optimize your vehicle sourcing and reduce aging inventory by up to 40%.",
+        title: "UX review presentations",
+        summary: "How do you create compelling presentations that wow your colleagues and impress your managers?",
         href: "#",
-        category: { name: "Inventory", href: "#" },
-        thumbnailUrl: writingImage1.src,
-        publishedAt: "28 Jan 2026",
-        readingTime: "6 min read",
-        author: { name: "VinTraxx Team", href: "#", avatarUrl: "" },
+        category: { name: "Design", href: "#" },
+        thumbnailUrl: "https://www.untitledui.com/marketing/spirals.webp",
+        publishedAt: "20 Jan 2025",
+        readingTime: "8 min read",
+        author: { name: "Olivia Rhye", href: "#", avatarUrl: "https://www.untitledui.com/images/avatars/olivia-rhye?fm=webp&q=80" },
         tags: [
-            { name: "AI", color: "brand", href: "#" },
-            { name: "Inventory", color: "blue-light", href: "#" },
+            { name: "Design", color: "brand", href: "#" },
+            { name: "Research", color: "indigo", href: "#" },
+            { name: "Presentation", color: "pink", href: "#" },
         ],
         isFeatured: true,
     },
     {
         id: "article-2",
-        title: "Streamlining Vehicle Reconditioning Workflows",
-        summary: "Discover how digital task management and vendor coordination can reduce recon time by 32%.",
+        title: "Migrating to Linear 101",
+        summary: "Linear helps streamline software projects, sprints, tasks, and bug tracking. Here's how to get started.",
         href: "#",
-        category: { name: "Recon", href: "#" },
-        thumbnailUrl: writingImage2.src,
-        publishedAt: "25 Jan 2026",
-        readingTime: "5 min read",
-        author: { name: "VinTraxx Team", href: "#", avatarUrl: "" },
+        category: { name: "Product", href: "#" },
+        thumbnailUrl: "https://www.untitledui.com/marketing/conversation.webp",
+
+        publishedAt: "19 Jan 2025",
+        readingTime: "8 min read",
+        author: { name: "Phoenix Baker", href: "#", avatarUrl: "https://www.untitledui.com/images/avatars/phoenix-baker?fm=webp&q=80" },
         tags: [
-            { name: "Recon", color: "orange", href: "#" },
-            { name: "Efficiency", color: "success", href: "#" },
+            { name: "Product", color: "blue-light", href: "#" },
+            { name: "Tools", color: "pink", href: "#" },
+            { name: "SaaS", color: "pink", href: "#" },
         ],
     },
     {
         id: "article-3",
-        title: "The Power of Video Marketing for Dealerships",
-        summary: "How VinClips helps dealers reach millions of potential buyers on TikTok with daily automated video content.",
+        title: "Building your API stack",
+        summary: "The rise of RESTful APIs has been met by a rise in tools for creating, testing, and managing them.",
         href: "#",
-        category: { name: "Marketing", href: "#" },
-        thumbnailUrl: writingImage3.src,
-        publishedAt: "22 Jan 2026",
-        readingTime: "7 min read",
-        author: { name: "VinTraxx Team", href: "#", avatarUrl: "" },
+        category: { name: "Software Engineering", href: "#" },
+        thumbnailUrl: "https://www.untitledui.com/blog/two-mobile-shapes-pattern.webp",
+        publishedAt: "18 Jan 2025",
+        readingTime: "8 min read",
+        author: { name: "Lana Steiner", href: "#", avatarUrl: "https://www.untitledui.com/images/avatars/lana-steiner?fm=webp&q=80" },
         tags: [
-            { name: "VinClips", color: "pink", href: "#" },
-            { name: "Social Media", color: "indigo", href: "#" },
+            { name: "Software Development", color: "success", href: "#" },
+            { name: "Tools", color: "pink", href: "#" },
+        ],
+    },
+    {
+        id: "article-3.5",
+        title: "PM mental models",
+        summary: "Mental models are simple expressions of complex processes or relationships.",
+        href: "#",
+        category: { name: "Product", href: "#" },
+        thumbnailUrl: "https://www.untitledui.com/blog/two-people.webp",
+        publishedAt: "17 Jan 2025",
+        readingTime: "8 min read",
+        author: { name: "Demi Wilkinson", href: "#", avatarUrl: "https://www.untitledui.com/images/avatars/demi-wilkinson?fm=webp&q=80" },
+        tags: [
+            { name: "Leadership", color: "brand", href: "#" },
+            { name: "Management", color: "gray-blue", href: "#" },
         ],
     },
     {
         id: "article-4",
-        title: "SmartScan: Revolutionizing Vehicle Appraisals",
-        summary: "Advanced OBD diagnostics and AI-powered pricing recommendations for confident vehicle acquisitions.",
+        title: "PM mental models",
+        summary: "Mental models are simple expressions of complex processes or relationships.",
         href: "#",
-        category: { name: "Diagnostics", href: "#" },
-        thumbnailUrl: writingImage4.src,
-        publishedAt: "18 Jan 2026",
-        readingTime: "5 min read",
-        author: { name: "VinTraxx Team", href: "#", avatarUrl: "" },
+        category: { name: "Product", href: "#" },
+        thumbnailUrl: "https://www.untitledui.com/marketing/brainstorming.webp",
+        publishedAt: "16 Jan 2025",
+        readingTime: "8 min read",
+        author: { name: "Demi Wilkinson", href: "#", avatarUrl: "https://www.untitledui.com/images/avatars/demi-wilkinson?fm=webp&q=80" },
         tags: [
-            { name: "SmartScan", color: "success", href: "#" },
-            { name: "Appraisal", color: "gray-blue", href: "#" },
+            { name: "Product", color: "blue-light", href: "#" },
+            { name: "Research", color: "indigo", href: "#" },
+            { name: "Frameworks", color: "orange", href: "#" },
+        ],
+    },
+    {
+        id: "article-5",
+        title: "What is Wireframing?",
+        summary: "Introduction to Wireframing and its Principles. Learn from the best in the industry.",
+        href: "#",
+        category: { name: "Design", href: "#" },
+        thumbnailUrl: "https://www.untitledui.com/marketing/workspace-4.webp",
+        publishedAt: "15 Jan 2025",
+        readingTime: "8 min read",
+        author: { name: "Candice Wu", href: "#", avatarUrl: "https://www.untitledui.com/images/avatars/candice-wu?fm=webp&q=80" },
+        tags: [
+            { name: "Design", color: "brand", href: "#" },
+            { name: "Research", color: "indigo", href: "#" },
+        ],
+    },
+    {
+        id: "article-6",
+        title: "How collaboration makes us better designers",
+        summary: "Collaboration can make our teams stronger, and our individual designs better.",
+        href: "#",
+        category: { name: "Design", href: "#" },
+        thumbnailUrl: "https://www.untitledui.com/marketing/collaboration.webp",
+        publishedAt: "14 Jan 2025",
+        readingTime: "8 min read",
+        author: { name: "Natali Craig", href: "#", avatarUrl: "https://www.untitledui.com/images/avatars/natali-craig?fm=webp&q=80" },
+        tags: [
+            { name: "Design", color: "brand", href: "#" },
+            { name: "Research", color: "indigo", href: "#" },
+        ],
+    },
+    {
+        id: "article-7",
+        title: "Our top 10 Javascript frameworks to use",
+        summary: "JavaScript frameworks make development easy with extensive features and functionalities.",
+        href: "#",
+        category: { name: "Product", href: "#" },
+        thumbnailUrl: "https://www.untitledui.com/marketing/man-and-laptop-2.webp",
+        publishedAt: "13 Jan 2025",
+        readingTime: "8 min read",
+        author: { name: "Drew Cano", href: "#", avatarUrl: "https://www.untitledui.com/images/avatars/drew-cano?fm=webp&q=80" },
+        tags: [
+            { name: "Software development", color: "success", href: "#" },
+            { name: "Tools", color: "pink", href: "#" },
+            { name: "SaaS", color: "pink", href: "#" },
+        ],
+    },
+    {
+        id: "article-8",
+        title: "Podcast: Creating a better CX Community",
+        summary: "Starting a community doesn't need to be complicated, but how do you get started?",
+        href: "#",
+        category: { name: "Customer Success", href: "#" },
+        thumbnailUrl: "https://www.untitledui.com/marketing/podcast-girl-2.webp",
+        publishedAt: "12 Jan 2025",
+        readingTime: "8 min read",
+        author: { name: "Orlando Diggs", href: "#", avatarUrl: "https://www.untitledui.com/images/avatars/orlando-diggs?fm=webp&q=80" },
+        tags: [
+            { name: "Podcasts", color: "brand", href: "#" },
+            { name: "Customer success", color: "gray-blue", href: "#" },
         ],
     },
 ];
@@ -582,25 +658,87 @@ const CTASimpleLogos02 = () => {
                 <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-16">
                     <div className="flex flex-col">
                         <div className="max-w-3xl">
-                            <h2 className="text-display-sm font-semibold text-primary md:text-display-md">Transform Your Dealership with VinTraxx</h2>
-                            <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">7 AI-powered products working together to maximize your profit.</p>
+                            <h2 className="text-display-sm font-semibold text-primary md:text-display-md">Join over 4,000+ startups growing with Untitled</h2>
+                            <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">Start your 30-day free trial today.</p>
                         </div>
 
                         <div className="mt-8 flex flex-col gap-3 self-stretch sm:flex-row sm:self-start md:mt-12 lg:flex-row-reverse">
-                            <Button size="xl">Request a Demo</Button>
+                            <Button size="xl">Get started</Button>
                             <Button color="secondary" size="xl">
                                 Learn more
                             </Button>
                         </div>
                     </div>
-                    <div className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-6 lg:mt-0">
-                        <img alt="VinLane" src={vinlaneLogo.src} className="h-10 md:h-12" />
-                        <img alt="SmartScan" src={smartscanLogo.src} className="h-10 md:h-12" />
-                        <img alt="Automall" src={automallLogo.src} className="h-10 md:h-12" />
-                        <img alt="Acquisition" src={acquisitionLogo.src} className="h-10 md:h-12" />
-                        <img alt="Recon" src={reconLogo.src} className="h-10 md:h-12" />
-                        <img alt="VinClips" src={vinclipsLogo.src} className="h-10 md:h-12" />
-                        <img alt="Website" src={websiteLogo.src} className="h-10 md:h-12" />
+                    <div className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-4 md:gap-y-6 lg:mt-0">
+                        {/* Light mode images (hidden in dark mode) */}
+                        <img alt="Ephemeral" src="https://www.untitledui.com/logos/logotype/color/ephemeral.svg" className="h-9 md:h-10 dark:hidden" />
+                        <img alt="Wildcrafted" src="https://www.untitledui.com/logos/logotype/color/wildcrafted.svg" className="h-9 md:h-10 dark:hidden" />
+                        <img alt="Codecraft" src="https://www.untitledui.com/logos/logotype/color/codecraft.svg" className="h-9 md:h-10 dark:hidden" />
+                        <img alt="Convergence" src="https://www.untitledui.com/logos/logotype/color/convergence.svg" className="h-9 md:h-10 dark:hidden" />
+                        <img alt="Imgcompress" src="https://www.untitledui.com/logos/logotype/color/imgcompress.svg" className="h-9 md:h-10 dark:hidden" />
+                        <img alt="Epicurious" src="https://www.untitledui.com/logos/logotype/color/epicurious.svg" className="h-9 md:h-10 dark:hidden" />
+                        <img
+                            alt="Watchtower"
+                            src="https://www.untitledui.com/logos/logotype/color/watchtower.svg"
+                            className="h-9 max-md:hidden md:h-10 dark:hidden"
+                        />
+                        <img
+                            alt="Renaissance"
+                            src="https://www.untitledui.com/logos/logotype/color/renaissance.svg"
+                            className="h-9 max-md:hidden md:h-10 dark:hidden"
+                        />
+                        <img
+                            alt="Contrastai"
+                            src="https://www.untitledui.com/logos/logotype/color/contrastai.svg"
+                            className="h-9 max-md:hidden md:h-10 dark:hidden"
+                        />
+
+                        {/* Dark mode images (hidden in light mode) */}
+                        <img
+                            alt="Ephemeral"
+                            src="https://www.untitledui.com/logos/logotype/white/ephemeral.svg"
+                            className="h-9 opacity-85 not-dark:hidden md:h-10"
+                        />
+                        <img
+                            alt="Wildcrafted"
+                            src="https://www.untitledui.com/logos/logotype/white/wildcrafted.svg"
+                            className="h-9 opacity-85 not-dark:hidden md:h-10"
+                        />
+                        <img
+                            alt="Codecraft"
+                            src="https://www.untitledui.com/logos/logotype/white/codecraft.svg"
+                            className="h-9 opacity-85 not-dark:hidden md:h-10"
+                        />
+                        <img
+                            alt="Convergence"
+                            src="https://www.untitledui.com/logos/logotype/white/convergence.svg"
+                            className="h-9 opacity-85 not-dark:hidden md:h-10"
+                        />
+                        <img
+                            alt="Imgcompress"
+                            src="https://www.untitledui.com/logos/logotype/white/imgcompress.svg"
+                            className="h-9 opacity-85 not-dark:hidden md:h-10"
+                        />
+                        <img
+                            alt="Epicurious"
+                            src="https://www.untitledui.com/logos/logotype/white/epicurious.svg"
+                            className="h-9 opacity-85 not-dark:hidden md:h-10"
+                        />
+                        <img
+                            alt="Watchtower"
+                            src="https://www.untitledui.com/logos/logotype/white/watchtower.svg"
+                            className="h-9 opacity-85 not-dark:hidden max-md:hidden md:h-10"
+                        />
+                        <img
+                            alt="Renaissance"
+                            src="https://www.untitledui.com/logos/logotype/white/renaissance.svg"
+                            className="h-9 opacity-85 not-dark:hidden max-md:hidden md:h-10"
+                        />
+                        <img
+                            alt="Contrastai"
+                            src="https://www.untitledui.com/logos/logotype/white/contrastai.svg"
+                            className="h-9 opacity-85 not-dark:hidden max-md:hidden md:h-10"
+                        />
                     </div>
                 </div>
             </div>
@@ -610,43 +748,55 @@ const CTASimpleLogos02 = () => {
 
 const footerNavList = [
     {
-        label: "Products",
+        label: "Product",
         items: [
-            { label: "VinLane IMS", href: "/products/vinlane" },
-            { label: "VinTraxx Recon", href: "/products/recon" },
-            { label: "SmartScan", href: "/products/smartscan" },
-            { label: "VinClips", href: "/products/vinclips" },
-            { label: "Auto Mall", href: "/products/automall" },
-            { label: "Acquisition.io", href: "/products/acquisition" },
+            { label: "Overview", href: "#" },
+            { label: "Features", href: "#" },
+            {
+                label: "Solutions",
+                href: "#",
+                badge: (
+                    <Badge color="gray" type="modern" size="sm" className="ml-1">
+                        New
+                    </Badge>
+                ),
+            },
+            { label: "Tutorials", href: "#" },
+            { label: "Pricing", href: "#" },
+            { label: "Releases", href: "#" },
         ],
     },
     {
         label: "Company",
         items: [
-            { label: "About us", href: "/about" },
-            { label: "Careers", href: "/careers" },
-            { label: "Press", href: "/press" },
-            { label: "News", href: "/news" },
-            { label: "Contact", href: "/contact" },
+            { label: "About us", href: "#" },
+            { label: "Careers", href: "#" },
+            { label: "Press", href: "#" },
+            { label: "News", href: "#" },
+            { label: "Media kit", href: "#" },
+            { label: "Contact", href: "#" },
         ],
     },
     {
         label: "Resources",
         items: [
-            { label: "Blog", href: "/blog" },
-            { label: "Help Center", href: "/help" },
-            { label: "Documentation", href: "/docs" },
-            { label: "Training", href: "/training" },
-            { label: "Support", href: "/support" },
+            { label: "Blog", href: "#" },
+            { label: "Newsletter", href: "#" },
+            { label: "Events", href: "#" },
+            { label: "Help centre", href: "#" },
+            { label: "Tutorials", href: "#" },
+            { label: "Support", href: "#" },
         ],
     },
     {
-        label: "For Dealers",
+        label: "Use cases",
         items: [
-            { label: "Independent Dealers", href: "/dealers/independent" },
-            { label: "Franchise Dealers", href: "/dealers/franchise" },
-            { label: "Dealer Groups", href: "/dealers/groups" },
-            { label: "Success Stories", href: "/success-stories" },
+            { label: "Startups", href: "#" },
+            { label: "Enterprise", href: "#" },
+            { label: "Government", href: "#" },
+            { label: "SaaS centre", href: "#" },
+            { label: "Marketplaces", href: "#" },
+            { label: "Ecommerce", href: "#" },
         ],
     },
     {
@@ -655,17 +805,20 @@ const footerNavList = [
             { label: "Twitter", href: "#" },
             { label: "LinkedIn", href: "#" },
             { label: "Facebook", href: "#" },
-            { label: "TikTok", href: "#" },
-            { label: "YouTube", href: "#" },
+            { label: "GitHub", href: "#" },
+            { label: "AngelList", href: "#" },
+            { label: "Dribbble", href: "#" },
         ],
     },
     {
         label: "Legal",
         items: [
-            { label: "Terms", href: "/terms" },
-            { label: "Privacy", href: "/privacy" },
-            { label: "Cookies", href: "/cookies" },
-            { label: "Settings", href: "/settings" },
+            { label: "Terms", href: "#" },
+            { label: "Privacy", href: "#" },
+            { label: "Cookies", href: "#" },
+            { label: "Licenses", href: "#" },
+            { label: "Settings", href: "#" },
+            { label: "Contact", href: "#" },
         ],
     },
 ];
@@ -675,13 +828,13 @@ const FooterLarge09 = () => {
         <footer className="dark-mode bg-primary py-12 md:pt-16">
             <div className="mx-auto max-w-container px-4 md:px-8">
                 <div className="flex flex-col justify-center text-center">
-                    <h2 className="text-display-xs font-semibold text-primary md:text-display-sm">Let's Revolutionize Your Dealership Together</h2>
-                    <p className="mt-2 text-md text-tertiary md:mt-4 md:text-xl">Get in touch to see how VinTraxx can boost your operations and profits.</p>
+                    <h2 className="text-display-xs font-semibold text-primary md:text-display-sm">Let's get started on something great</h2>
+                    <p className="mt-2 text-md text-tertiary md:mt-4 md:text-xl">Join over 4,000+ startups already growing with Untitled.</p>
                     <div className="mt-8 flex flex-col-reverse gap-3 self-stretch md:mt-12 md:flex-row md:self-center">
                         <Button color="secondary" size="xl">
-                            Contact Us
+                            Chat to us
                         </Button>
-                        <Button size="xl">Request a Demo</Button>
+                        <Button size="xl">Get started</Button>
                     </div>
                 </div>
 
@@ -693,7 +846,7 @@ const FooterLarge09 = () => {
                                 <ul className="mt-4 flex flex-col gap-3">
                                     {category.items.map((item) => (
                                         <li key={item.label}>
-                                            <Button color="link-gray" size="lg" href={item.href}>
+                                            <Button color="link-gray" size="lg" href={item.href} iconTrailing={item.badge} className="gap-1">
                                                 {item.label}
                                             </Button>
                                         </li>
@@ -704,17 +857,15 @@ const FooterLarge09 = () => {
                     </ul>
                 </nav>
                 <div className="mt-12 flex flex-col justify-between gap-6 border-t border-secondary pt-8 md:mt-16 md:flex-row md:items-center">
-                    <Link href="/">
-                    <UntitledLogo className="h-10" />
-                </Link>
-                    <p className="text-md text-quaternary">© 2025 Vintraxx. All rights reserved.</p>
+                    <UntitledLogo className="h-8 w-min" />
+                    <p className="text-md text-quaternary">© 2077 Untitled UI. All rights reserved.</p>
                 </div>
             </div>
         </footer>
     );
 };
 
-const LandingPage = () => {
+const LandingPage17 = () => {
     return (
         <div className="bg-primary">
             <HeroAbstractAngles01 />
@@ -742,4 +893,4 @@ const LandingPage = () => {
     );
 };
 
-export default LandingPage;
+export default LandingPage17;
