@@ -69,8 +69,18 @@ const HeroAbstractAngles01 = () => {
         <div className="bg-primary">
             <HeaderPrimary />
             <section>
-                <div className="flex flex-col items-center bg-utility-brand-50_alt pt-16 md:pt-24">
-                    <div className="mx-auto flex w-full max-w-container flex-col px-4 md:px-8">
+                <div className="relative flex flex-col items-center overflow-hidden pt-16 md:pt-24 min-h-[800px] md:min-h-[900px]">
+                    <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="absolute inset-0 z-0 size-full object-cover"
+                        src="/assets/videos/intro.mp4"
+                    />
+                    <div className="absolute inset-0 z-0 bg-black/50" />
+
+                    <div className="relative z-10 mx-auto flex w-full max-w-container flex-col px-4 md:px-8">
                         <div className="flex flex-col items-start sm:items-center sm:text-center">
                             <a href="#" className="rounded-full outline-focus-ring focus-visible:outline-2 focus-visible:outline-offset-2">
                                 <BadgeGroup className="hidden md:flex" size="lg" addonText="New feature" iconTrailing={ArrowRight} theme="light" color="brand">
@@ -81,10 +91,10 @@ const HeroAbstractAngles01 = () => {
                                 </BadgeGroup>
                             </a>
 
-                            <h1 className="mt-4 text-display-md font-semibold text-brand-primary md:text-display-lg lg:text-display-xl">
+                            <h1 className="mt-4 text-display-md font-semibold text-white md:text-display-lg lg:text-display-xl">
                                 The Smarter Way to Stock a Dealership
                             </h1>
-                            <p className="mt-4 max-w-3xl text-lg text-brand-secondary md:mt-6 md:text-xl">
+                            <p className="mt-4 max-w-3xl text-lg text-white/80 md:mt-6 md:text-xl">
                                 A modern approach to choosing the right vehicles—using real demand data, faster sourcing, and smarter pricing - so you sell more, reduce aging inventory, and improve profit.
                             </p>
                             <div className="relative z-1 mt-8 flex w-full flex-col-reverse items-stretch gap-3 sm:w-auto sm:flex-row sm:items-start md:mt-12">
@@ -95,20 +105,19 @@ const HeroAbstractAngles01 = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="relative pt-16">
-                    <BackgroundStripes />
-                </div>
 
-                <div className="relative pb-16 md:pb-24">
-                    <div className="mx-auto w-full max-w-container px-4 md:px-8">
-                        <div className="flex justify-center">
-                            <VideoPlayer
-                                size="lg"
-                                thumbnailUrl={videoThumbnail.src}
-                                src="/assets/videos/intro.mp4"
-                                className="aspect-video w-full overflow-hidden rounded-xl shadow-3xl md:max-w-240"
-                            />
+                    <div className="relative z-10 mt-auto w-full px-4 pb-8 md:px-8 md:pb-12">
+                        <div className="mx-auto max-w-5xl rounded-2xl bg-white/10 px-6 py-6 ring-1 ring-white/20 backdrop-blur-xl ring-inset md:px-10 md:py-8">
+                            <p className="mb-5 text-center text-md font-medium text-white/70">Join 7+ AI-Powered Products</p>
+                            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 xl:gap-x-8">
+                                <img alt="Acquisition" src={acquisitionLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
+                                <img alt="Automall" src={automallLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
+                                <img alt="Recon" src={reconLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
+                                <img alt="SmartScan" src={smartscanLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
+                                <img alt="VinClips" src={vinclipsLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
+                                <img alt="VinLane" src={vinlaneLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
+                                <img alt="Website" src={websiteLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -122,7 +131,7 @@ const SocialProofFullWidth = () => {
         <section className="bg-primary pb-16 md:pb-24">
             <div className="mx-auto max-w-container px-4 md:px-8">
                 <div className="flex flex-col gap-8">
-                    <p className="text-center text-md font-medium text-tertiary">Join 7+ AI-Powered Products</p>
+                    <p className="text-center text-md mt-16 font-medium text-tertiary">Join 7+ AI-Powered Products</p>
                     <div className="flex flex-wrap justify-center gap-x-10 gap-y-6 xl:gap-x-8">
                         <img alt="Acquisition" src={acquisitionLogo.src} className="h-12 md:h-16" />
                         <img alt="Automall" src={automallLogo.src} className="h-12 md:h-16" />
