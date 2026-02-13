@@ -8,6 +8,7 @@ import { Form } from "@/components/base/form/form";
 import { Input } from "@/components/base/input/input";
 import { UntitledLogoMinimal } from "@/components/foundations/logo/untitledui-logo-minimal";
 import { BackgroundPattern } from "@/components/shared-assets/background-patterns";
+import Link from "next/link";
 
 
 const tabs = [
@@ -23,8 +24,10 @@ export const LoginSimple = () => {
                     <div className="relative">
                         <BackgroundPattern pattern="grid" className="absolute top-1/2 left-1/2 z-0 hidden -translate-x-1/2 -translate-y-1/2 md:block" />
                         <BackgroundPattern pattern="grid" size="md" className="absolute top-1/2 left-1/2 z-0 -translate-x-1/2 -translate-y-1/2 md:hidden" />
-                        <UntitledLogoMinimal className="relative z-10 size-12 max-md:hidden" />
-                        <UntitledLogoMinimal className="relative z-10 size-10 md:hidden" />
+                        <Link href="/">
+                            <UntitledLogoMinimal className="relative z-10 size-12 max-md:hidden" />
+                            <UntitledLogoMinimal className="relative z-10 size-10 md:hidden" />
+                        </Link>
                     </div>
                     <div className="z-10 flex flex-col gap-2 md:gap-3">
                         <h1 className="text-display-xs font-semibold text-primary md:text-display-sm">Log in to your account</h1>

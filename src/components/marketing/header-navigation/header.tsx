@@ -84,7 +84,7 @@ const MobileFooter = () => {
             </div>
             <div className="flex flex-col gap-3">
                 <Button size="lg">Request a Demo</Button>
-                <Button color="secondary" size="lg">
+                <Button color="secondary" size="lg" href="/login">
                     Log in
                 </Button>
             </div>
@@ -182,7 +182,7 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                     </div>
 
                     <div className="hidden items-center gap-3 md:flex">
-                        <Button color="secondary" size={isFloating ? "md" : "lg"}>
+                        <Button color="secondary" size={isFloating ? "md" : "lg"} href="/login">
                             Log in
                         </Button>
                         <Button color="primary" size={isFloating ? "md" : "lg"}>
