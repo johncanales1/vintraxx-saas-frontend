@@ -27,7 +27,7 @@
         "@tiptap/react": "^3.18.0",
         "@tiptap/starter-kit": "^3.18.0",
         "@untitledui/file-icons": "^0.0.9",
-        "@untitledui/icons": "^0.0.20",
+        "@untitledui/icons": "^0.0.21",
         "embla-carousel-react": "^8.6.0",
         "hast-util-to-jsx-runtime": "^2.3.6",
         "input-otp": "^1.4.2",
