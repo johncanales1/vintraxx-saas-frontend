@@ -8,6 +8,7 @@ import { BadgeWithDot } from "@/components/base/badges/badges";
 import { Input } from "@/components/base/input/input";
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
 import { cx } from "@/utils/cx";
+import johnImage from "@/assets/images/team/john.jpg";
 import { MobileNavigationHeader } from "./base-components/mobile-header";
 import { NavAccountCard, NavAccountMenu } from "./base-components/nav-account-card";
 import { NavItemBase } from "./base-components/nav-item";
@@ -42,6 +43,8 @@ interface HeaderNavigationBaseProps {
     showAvatarDropdown?: boolean;
     /** Whether to hide the bottom border. */
     hideBorder?: boolean;
+    /** URL the logo links to. */
+    logoHref?: string;
 }
 
 export const HeaderNavigationBase = ({
@@ -51,6 +54,7 @@ export const HeaderNavigationBase = ({
     trailingContent,
     showAvatarDropdown = true,
     hideBorder = false,
+    logoHref = "/",
 }: HeaderNavigationBaseProps) => {
     const activeSubNavItems = subItems || items.find((item) => item.current && item.items && item.items.length > 0)?.items;
 
@@ -58,7 +62,7 @@ export const HeaderNavigationBase = ({
 
     return (
         <>
-            <MobileNavigationHeader>
+            <MobileNavigationHeader logoHref={logoHref}>
                 <aside className="flex h-full max-w-full flex-col justify-between overflow-auto border-r border-secondary bg-primary pt-4 lg:pt-6">
                     <div className="flex flex-col gap-5 px-4 lg:px-5">
                         <UntitledLogo className="h-8" />
@@ -94,7 +98,7 @@ export const HeaderNavigationBase = ({
                 </aside>
             </MobileNavigationHeader>
 
-            <header className="max-lg:hidden">
+            <header className="fixed top-0 left-0 right-0 z-50 max-lg:hidden">
                 <section
                     className={cx(
                         "flex h-16 w-full items-center justify-center bg-primary md:h-18",
@@ -105,7 +109,7 @@ export const HeaderNavigationBase = ({
                         <div className="flex flex-1 items-center gap-4">
                             <a
                                 aria-label="Go to homepage"
-                                href="/"
+                                href={logoHref}
                                 className="rounded-xs outline-focus-ring focus-visible:outline-2 focus-visible:outline-offset-2"
                             >
                                 <UntitledLogo className="h-8" />
@@ -156,7 +160,7 @@ export const HeaderNavigationBase = ({
                                             )
                                         }
                                     >
-                                        <Avatar alt="Olivia Rhye" src="https://www.untitledui.com/images/avatars/olivia-rhye?bg=%23E0E0E0" size="md" />
+                                        <Avatar alt="John Canales" src={johnImage.src} size="md" />
                                     </AriaButton>
                                     <Popover
                                         placement="bottom right"

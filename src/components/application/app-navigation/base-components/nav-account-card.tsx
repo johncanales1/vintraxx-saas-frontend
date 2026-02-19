@@ -12,6 +12,8 @@ import { Button } from "@/components/base/buttons/button";
 import { RadioButtonBase } from "@/components/base/radio-buttons/radio-buttons";
 import { useBreakpoint } from "@/hooks/use-breakpoint";
 import { cx } from "@/utils/cx";
+import johnImage from "@/assets/images/team/john.jpg";
+import paulImage from "@/assets/images/team/paul.jpg";
 
 type NavAccountType = {
     /** Unique identifier for the nav item. */
@@ -28,24 +30,24 @@ type NavAccountType = {
 
 const placeholderAccounts: NavAccountType[] = [
     {
-        id: "olivia",
-        name: "Olivia Rhye",
-        email: "olivia@untitledui.com",
-        avatar: "https://www.untitledui.com/images/avatars/olivia-rhye?fm=webp&q=80",
+        id: "john",
+        name: "John Canales",
+        email: "john@vintraxx.com",
+        avatar: johnImage.src,
         status: "online",
     },
     {
-        id: "sienna",
-        name: "Sienna Hewitt",
-        email: "sienna@untitledui.com",
-        avatar: "https://www.untitledui.com/images/avatars/transparent/sienna-hewitt?bg=%23E0E0E0",
+        id: "paul",
+        name: "Paul Machin",
+        email: "paul@vintraxx.com",
+        avatar: paulImage.src,
         status: "online",
     },
 ];
 
 export const NavAccountMenu = ({
     className,
-    selectedAccountId = "olivia",
+    selectedAccountId = "john",
     ...dialogProps
 }: AriaDialogProps & { className?: string; accounts?: NavAccountType[]; selectedAccountId?: string }) => {
     const focusManager = useFocusManager();
@@ -156,7 +158,7 @@ const NavAccountCardMenuItem = ({
 
 export const NavAccountCard = ({
     popoverPlacement,
-    selectedAccountId = "olivia",
+    selectedAccountId = "john",
     items = placeholderAccounts,
 }: {
     popoverPlacement?: Placement;

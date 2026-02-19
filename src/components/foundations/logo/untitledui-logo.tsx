@@ -8,7 +8,7 @@ import labelLogo from "@/assets/logo/label.png";
 
 export const UntitledLogo = (props: HTMLAttributes<HTMLOrSVGElement>) => {
     return (
-        <div {...props} className={cx("flex h-32 w-max items-center justify-start gap-1 overflow-visible", props.className)}>
+        <div {...props} className={cx("flex w-max items-center justify-start gap-1 overflow-visible", props.className)}>
             {/* Minimal logo */}
             <Image src={miniLogo} alt="Logo" className="h-full w-auto shrink-0 -translate-y-0.5" />
 
