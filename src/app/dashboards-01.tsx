@@ -4,7 +4,6 @@ import { ArrowUp, ArrowUpRight, Edit04, FilterLines, UserPlus01 } from "@untitle
 import { Area, AreaChart, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, XAxis } from "recharts";
 import type { FeedItemType } from "@/components/application/activity-feed/activity-feed";
 import { FeedItem } from "@/components/application/activity-feed/activity-feed";
-import { HeaderNavigationBase } from "@/components/application/app-navigation/header-navigation";
 import { ChartTooltipContent } from "@/components/application/charts/charts-base";
 import { DateRangePicker } from "@/components/application/date-picker/date-range-picker";
 import { SectionHeader } from "@/components/application/section-headers/section-headers";
@@ -15,6 +14,14 @@ import { ButtonGroup, ButtonGroupItem } from "@/components/base/button-group/but
 import { Button } from "@/components/base/buttons/button";
 import { FeaturedIcon } from "@/components/foundations/featured-icon/featured-icon";
 import { cx } from "@/utils/cx";
+import johnImage from "@/assets/images/team/john.jpg";
+import paulImage from "@/assets/images/team/paul.jpg";
+import billImage from "@/assets/images/team/bill.jpg";
+import travisImage from "@/assets/images/team/travis.jpg";
+import sheilaImage from "@/assets/images/team/shiela.jpg";
+import dyannaImage from "@/assets/images/team/dyanna.jpg";
+import articleImage1 from "@/assets/images/writings/image1.png";
+import articleImage2 from "@/assets/images/writings/image2.png";
 
 const lineData = [
     {
@@ -103,44 +110,43 @@ type Article = {
 const articles: Article[] = [
     {
         id: "article-1",
-        title: "Building your API Stack",
-        summary: "The rise of RESTful APIs has been met by a rise in tools for creating, testing, and managing them.",
-        href: "#",
-        category: { name: "Design", href: "#" },
-        thumbnailUrl: "https://www.untitledui.com/blog/two-mobile-shapes-pattern.webp",
+        title: "SmartScan Now Live",
+        summary: "AI-powered vehicle diagnostics and inspection reports are now available for all dealers.",
+        href: "/app/products/smartscan",
+        category: { name: "Product Update", href: "#" },
+        thumbnailUrl: articleImage1.src,
         publishedAt: "18 Jan 2025",
-        readingTime: "8 min read",
+        readingTime: "3 min read",
         author: {
-            name: "Lana Steiner",
+            name: "John Canales",
             href: "#",
-            avatarUrl: "https://www.untitledui.com/images/avatars/lana-steiner?fm=webp&q=80",
+            avatarUrl: johnImage.src,
         },
         tags: [
-            { name: "Design", color: "brand", href: "#" },
-            { name: "Research", color: "indigo", href: "#" },
-            { name: "Presentation", color: "pink", href: "#" },
+            { name: "SmartScan", color: "brand", href: "#" },
+            { name: "AI", color: "indigo", href: "#" },
+            { name: "Diagnostics", color: "pink", href: "#" },
         ],
         isFeatured: true,
     },
     {
         id: "article-2",
-        title: "Collaboration = better designer",
-        summary: "Collaboration can make our teams stronger, and our individual designs better.",
-        href: "#",
-        category: { name: "Design", href: "#" },
-        thumbnailUrl: "https://www.untitledui.com/application/two-people.webp",
-
+        title: "Acquisition.io Beta Launch",
+        summary: "AI-powered vehicle consignment is entering beta—source smarter, sell faster.",
+        href: "/app/products/acquisition",
+        category: { name: "Announcement", href: "#" },
+        thumbnailUrl: articleImage2.src,
         publishedAt: "14 Jan 2025",
-        readingTime: "8 min read",
+        readingTime: "4 min read",
         author: {
-            name: "Natali Craig",
+            name: "Paul Machin",
             href: "#",
-            avatarUrl: "https://www.untitledui.com/images/avatars/natali-craig?fm=webp&q=80",
+            avatarUrl: paulImage.src,
         },
         tags: [
-            { name: "Product", color: "blue-light", href: "#" },
-            { name: "Tools", color: "pink", href: "#" },
-            { name: "SaaS", color: "pink", href: "#" },
+            { name: "Acquisition", color: "blue-light", href: "#" },
+            { name: "Consignment", color: "pink", href: "#" },
+            { name: "AI", color: "pink", href: "#" },
         ],
     },
 ];
@@ -150,111 +156,67 @@ const feed: FeedItemType[] = [
         id: "user-1",
         unseen: true,
         user: {
-            avatarUrl: "https://www.untitledui.com/images/avatars/phoenix-baker?fm=webp&q=80",
-            name: "Phoenix Baker",
+            avatarUrl: johnImage.src,
+            name: "John Canales",
             href: "#",
             status: "online",
         },
-        action: { content: "Member since Feb 2025" },
+        action: { content: "Founder & CEO" },
     },
     {
         id: "user-2",
         unseen: true,
         user: {
-            avatarUrl: "https://www.untitledui.com/images/avatars/lana-steiner?fm=webp&q=80",
-            name: "Lana Steiner",
+            avatarUrl: paulImage.src,
+            name: "Paul Machin",
             href: "#",
             status: "online",
         },
-        action: { content: "Member since Jan 2025" },
+        action: { content: "Chief Revenue Officer" },
     },
     {
         id: "user-3",
         unseen: true,
         user: {
-            avatarUrl: "https://www.untitledui.com/images/avatars/demi-wilkinson?fm=webp&q=80",
-            name: "Demi Wilkinson",
+            avatarUrl: billImage.src,
+            name: "Bill Randolph",
             href: "#",
             status: "online",
         },
-        action: { content: "Member since Mar 2025" },
+        action: { content: "Chief Commercial Officer" },
     },
     {
         id: "user-4",
         unseen: false,
         user: {
-            avatarUrl: "https://www.untitledui.com/images/avatars/candice-wu?fm=webp&q=80",
-            name: "Candice Wu",
+            avatarUrl: travisImage.src,
+            name: "Travis Wisenbarger",
             href: "#",
             status: "online",
         },
-        action: { content: "Member since Feb 2025" },
+        action: { content: "Chief Sales Officer" },
     },
     {
         id: "user-5",
         unseen: false,
         user: {
-            avatarUrl: "https://www.untitledui.com/images/avatars/natali-craig?fm=webp&q=80",
-            name: "Natali Craig",
+            avatarUrl: sheilaImage.src,
+            name: "Sheila Hartwell",
             href: "#",
             status: "online",
         },
-        action: { content: "Member since Mar 2025" },
+        action: { content: "Co-Founder & Chief Success Officer" },
     },
     {
         id: "user-6",
         unseen: false,
         user: {
-            avatarUrl: "https://www.untitledui.com/images/avatars/orlando-diggs?fm=webp&q=80",
-            name: "Orlando Diggs",
+            avatarUrl: dyannaImage.src,
+            name: "Dyanna Rossini",
             href: "#",
             status: "online",
         },
-        action: { content: "Member since Apr 2025" },
-    },
-    {
-        id: "user-7",
-        unseen: false,
-        user: {
-            avatarUrl: "https://www.untitledui.com/images/avatars/drew-cano?fm=webp&q=80",
-            name: "Drew Cano",
-            href: "#",
-            status: "online",
-        },
-        action: { content: "Member since Apr 2025" },
-    },
-    {
-        id: "user-8",
-        unseen: false,
-        user: {
-            avatarUrl: "https://www.untitledui.com/images/avatars/kate-morrison?fm=webp&q=80",
-            name: "Kate Morrison",
-            href: "#",
-            status: "online",
-        },
-        action: { content: "Member since Jan 2025" },
-    },
-    {
-        id: "user-9",
-        unseen: false,
-        user: {
-            avatarUrl: "https://www.untitledui.com/images/avatars/koray-okumus?fm=webp&q=80",
-            name: "Koray Okumus",
-            href: "#",
-            status: "online",
-        },
-        action: { content: "Member since Feb 2025" },
-    },
-    {
-        id: "user-10",
-        unseen: false,
-        user: {
-            avatarUrl: "https://www.untitledui.com/images/avatars/ava-wright?fm=webp&q=80",
-            name: "Ava Wright",
-            href: "#",
-            status: "online",
-        },
-        action: { content: "Member since Mar 2025" },
+        action: { content: "Chief Innovation Officer" },
     },
 ];
 
@@ -305,40 +267,14 @@ const Simple04Vertical = ({ article, imageClassName, className }: { article: Art
 
 export const Dashboard01 = () => {
     return (
-        <div className="bg-primary">
-            <HeaderNavigationBase
-                activeUrl="/dashboard/overview"
-                items={[
-                    { label: "Home", href: "/" },
-                    {
-                        label: "Dashboard",
-                        href: "/dashboard",
-                        current: true,
-                        items: [
-                            { label: "Overview", href: "/dashboard/overview", current: true },
-                            { label: "Notifications", href: "#" },
-                            { label: "Analytics", href: "#" },
-                            { label: "Saved reports", href: "#" },
-                            { label: "Scheduled reports", href: "#" },
-                            { label: "User reports", href: "#" },
-                        ],
-                    },
-                    { label: "Projects", href: "/projects" },
-                    { label: "Tasks", href: "/tasks" },
-                    { label: "Reporting", href: "/reporting" },
-                    { label: "Users", href: "/users" },
-                ]}
-            />
-
-            <main className="bg-primary pt-8 pb-12 lg:pt-12 lg:pb-24">
-                <div className="flex flex-col gap-8">
-                    <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-8">
                         <div className="mx-auto flex w-full max-w-container flex-col gap-5 px-4 lg:px-8">
                             {/* Page header simple with search */}
                             <div className="relative flex flex-col gap-5">
                                 <div className="flex flex-col gap-4 lg:flex-row lg:justify-between">
                                     <div className="flex flex-col gap-0.5 lg:gap-1">
-                                        <h1 className="text-xl font-semibold text-primary lg:text-display-xs">Welcome back, Olivia</h1>
+                                        <h1 className="text-xl font-semibold text-primary lg:text-display-xs">Welcome back to VinTraxx</h1>
                                     </div>
                                 </div>
                             </div>
@@ -379,12 +315,12 @@ export const Dashboard01 = () => {
 
                         <div className="mx-auto flex w-full max-w-container flex-col gap-6 px-4 lg:flex-row lg:gap-8 lg:px-8">
                             <div className="flex flex-col gap-2">
-                                <p className="text-sm font-medium text-tertiary">MRR</p>
+                                <p className="text-sm font-medium text-tertiary">Total Inventory Value</p>
 
                                 <div className="flex items-center gap-4">
                                     <div className="flex items-start gap-0.5">
                                         <span className="pt-0.5 text-xl font-medium text-primary">$</span>
-                                        <span className="text-display-md font-semibold text-primary">18,880</span>
+                                        <span className="text-display-md font-semibold text-primary">2.4M</span>
                                     </div>
 
                                     <BadgeWithIcon type="modern" color="success" iconLeading={ArrowUp}>
@@ -438,7 +374,7 @@ export const Dashboard01 = () => {
                                         <RechartsTooltip
                                             content={<ChartTooltipContent />}
                                             formatter={(value) =>
-                                                value.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0 })
+                                                value?.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0 }) ?? ""
                                             }
                                             labelFormatter={(value) => new Date(value).toLocaleDateString(undefined, { month: "short", year: "numeric" })}
                                             cursor={{
@@ -479,27 +415,27 @@ export const Dashboard01 = () => {
 
                             <dl className="flex w-full max-w-60 flex-col gap-5">
                                 <div className="flex flex-col gap-2">
-                                    <dt className="text-sm font-medium text-tertiary">Total members</dt>
+                                    <dt className="text-sm font-medium text-tertiary">Active Vehicles</dt>
                                     <dd className="flex items-center gap-4">
-                                        <span className="text-display-sm font-semibold text-primary">4,862</span>
+                                        <span className="text-display-sm font-semibold text-primary">186</span>
                                         <BadgeWithIcon type="modern" color="success" iconLeading={ArrowUp}>
                                             9.2%
                                         </BadgeWithIcon>
                                     </dd>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <dt className="text-sm font-medium text-tertiary">Paid members</dt>
+                                    <dt className="text-sm font-medium text-tertiary">Vehicles Sold (MTD)</dt>
                                     <dd className="flex items-center gap-4">
-                                        <span className="text-display-sm font-semibold text-primary">2,671</span>
+                                        <span className="text-display-sm font-semibold text-primary">42</span>
                                         <BadgeWithIcon type="modern" color="success" iconLeading={ArrowUp}>
                                             6.6%
                                         </BadgeWithIcon>
                                     </dd>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <dt className="text-sm font-medium text-tertiary">Email open rate</dt>
+                                    <dt className="text-sm font-medium text-tertiary">Avg Days on Lot</dt>
                                     <dd className="flex items-center gap-4">
-                                        <span className="text-display-sm font-semibold text-primary">82%</span>
+                                        <span className="text-display-sm font-semibold text-primary">28</span>
                                         <BadgeWithIcon type="modern" color="success" iconLeading={ArrowUp}>
                                             8.1%
                                         </BadgeWithIcon>
@@ -512,7 +448,7 @@ export const Dashboard01 = () => {
                             <SectionHeader.Root>
                                 <SectionHeader.Group>
                                     <div className="flex flex-1 flex-col justify-center gap-0.5 self-stretch">
-                                        <SectionHeader.Heading>Start creating content</SectionHeader.Heading>
+                                        <SectionHeader.Heading>Quick Actions</SectionHeader.Heading>
                                     </div>
 
                                     <div className="absolute top-0 right-0 md:static">
@@ -524,30 +460,30 @@ export const Dashboard01 = () => {
                             <div className="flex flex-col gap-8 lg:flex-row">
                                 <div className="flex flex-col gap-8">
                                     <div className="flex flex-col gap-5 md:flex-row md:flex-wrap lg:gap-6">
-                                        <button className="flex flex-1 cursor-pointer gap-3 rounded-xl bg-primary p-5 shadow-xs ring-1 ring-secondary outline-focus-ring ring-inset focus-visible:outline-2 focus-visible:outline-offset-2 md:min-w-[320px]">
+                                        <a href="/app/products/vinlane" className="flex flex-1 cursor-pointer gap-3 rounded-xl bg-primary p-5 shadow-xs ring-1 ring-secondary outline-focus-ring ring-inset focus-visible:outline-2 focus-visible:outline-offset-2 md:min-w-[320px]">
                                             <FeaturedIcon icon={UserPlus01} color="brand" theme="dark" size="lg" className="hidden lg:flex" />
                                             <FeaturedIcon icon={UserPlus01} color="brand" theme="dark" size="md" className="lg:hidden" />
 
                                             <div className="flex min-w-0 flex-1 flex-col items-start gap-0.5 text-left">
-                                                <p className="text-md font-semibold text-secondary">Create your first member</p>
-                                                <p className="max-w-full truncate text-sm text-tertiary">Add yourself or import from CSV</p>
+                                                <p className="text-md font-semibold text-secondary">Add New Vehicle</p>
+                                                <p className="max-w-full truncate text-sm text-tertiary">Add manually or import from CSV</p>
                                             </div>
-                                        </button>
-                                        <button className="flex flex-1 cursor-pointer gap-3 rounded-xl bg-primary p-5 shadow-xs ring-1 ring-secondary outline-focus-ring ring-inset focus-visible:outline-2 focus-visible:outline-offset-2 md:min-w-[320px]">
+                                        </a>
+                                        <a href="/app/products/smartscan" className="flex flex-1 cursor-pointer gap-3 rounded-xl bg-primary p-5 shadow-xs ring-1 ring-secondary outline-focus-ring ring-inset focus-visible:outline-2 focus-visible:outline-offset-2 md:min-w-[320px]">
                                             <FeaturedIcon icon={Edit04} color="brand" theme="dark" size="lg" className="hidden lg:flex" />
                                             <FeaturedIcon icon={Edit04} color="brand" theme="dark" size="md" className="lg:hidden" />
 
                                             <div className="flex min-w-0 flex-1 flex-col items-start gap-0.5 text-left">
-                                                <p className="text-md font-semibold text-secondary">Create a new post</p>
-                                                <p className="max-w-full truncate text-sm text-tertiary">Dive into the editor and start creating</p>
+                                                <p className="text-md font-semibold text-secondary">Run SmartScan</p>
+                                                <p className="max-w-full truncate text-sm text-tertiary">Start a vehicle diagnostic inspection</p>
                                             </div>
-                                        </button>
+                                        </a>
                                     </div>
                                     <div className="flex flex-col gap-6">
                                         <SectionHeader.Root>
                                             <SectionHeader.Group>
                                                 <div className="flex flex-1 flex-col justify-center gap-0.5 self-stretch">
-                                                    <SectionHeader.Heading>Recent posts</SectionHeader.Heading>
+                                                    <SectionHeader.Heading>Recent Activity</SectionHeader.Heading>
                                                 </div>
 
                                                 <div className="absolute top-0 right-0 md:static">
@@ -564,12 +500,12 @@ export const Dashboard01 = () => {
                                 </div>
 
                                 <div className="flex w-full flex-col gap-6 lg:max-w-60">
-                                    <p className="hidden text-sm font-medium text-secondary lg:block">Top members</p>
+                                    <p className="hidden text-sm font-medium text-secondary lg:block">Team Activity</p>
 
                                     <SectionHeader.Root className="lg:hidden">
                                         <SectionHeader.Group>
                                             <div className="flex flex-1 flex-col justify-center gap-0.5 self-stretch">
-                                                <SectionHeader.Heading>Top members</SectionHeader.Heading>
+                                                <SectionHeader.Heading>Team Activity</SectionHeader.Heading>
                                             </div>
 
                                             <div className="absolute top-0 right-0 md:static">
@@ -590,7 +526,5 @@ export const Dashboard01 = () => {
                         </div>
                     </div>
                 </div>
-            </main>
-        </div>
     );
 };

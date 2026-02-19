@@ -1,5 +1,5 @@
-import { Dashboard04 } from "@/app/dashboards-04";
+import { Dashboard01 } from "@/app/dashboards-01";
 
 export default function AppDashboardPage() {
-    return <Dashboard04 />;
+    return <Dashboard01 />;
 }

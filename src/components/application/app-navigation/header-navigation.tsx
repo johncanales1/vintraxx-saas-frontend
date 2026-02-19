@@ -8,6 +8,7 @@ import { BadgeWithDot } from "@/components/base/badges/badges";
 import { Input } from "@/components/base/input/input";
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
 import { cx } from "@/utils/cx";
+import johnImage from "@/assets/images/team/john.jpg";
 import { MobileNavigationHeader } from "./base-components/mobile-header";
 import { NavAccountCard, NavAccountMenu } from "./base-components/nav-account-card";
 import { NavItemBase } from "./base-components/nav-item";
@@ -97,7 +98,7 @@ export const HeaderNavigationBase = ({
                 </aside>
             </MobileNavigationHeader>
 
-            <header className="max-lg:hidden">
+            <header className="fixed top-0 left-0 right-0 z-50 max-lg:hidden">
                 <section
                     className={cx(
                         "flex h-16 w-full items-center justify-center bg-primary md:h-18",
@@ -159,7 +160,7 @@ export const HeaderNavigationBase = ({
                                             )
                                         }
                                     >
-                                        <Avatar alt="Olivia Rhye" src="https://www.untitledui.com/images/avatars/olivia-rhye?bg=%23E0E0E0" size="md" />
+                                        <Avatar alt="John Canales" src={johnImage.src} size="md" />
                                     </AriaButton>
                                     <Popover
                                         placement="bottom right"

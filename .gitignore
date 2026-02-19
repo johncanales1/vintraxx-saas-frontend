@@ -14,7 +14,7 @@
 /coverage
 
 #original project
-# /original-web
+/original-web
 
 # next.js
 /.next/
