@@ -42,6 +42,8 @@ interface HeaderNavigationBaseProps {
     showAvatarDropdown?: boolean;
     /** Whether to hide the bottom border. */
     hideBorder?: boolean;
+    /** URL the logo links to. */
+    logoHref?: string;
 }
 
 export const HeaderNavigationBase = ({
@@ -51,6 +53,7 @@ export const HeaderNavigationBase = ({
     trailingContent,
     showAvatarDropdown = true,
     hideBorder = false,
+    logoHref = "/",
 }: HeaderNavigationBaseProps) => {
     const activeSubNavItems = subItems || items.find((item) => item.current && item.items && item.items.length > 0)?.items;
 
@@ -58,7 +61,7 @@ export const HeaderNavigationBase = ({
 
     return (
         <>
-            <MobileNavigationHeader>
+            <MobileNavigationHeader logoHref={logoHref}>
                 <aside className="flex h-full max-w-full flex-col justify-between overflow-auto border-r border-secondary bg-primary pt-4 lg:pt-6">
                     <div className="flex flex-col gap-5 px-4 lg:px-5">
                         <UntitledLogo className="h-8" />
@@ -105,7 +108,7 @@ export const HeaderNavigationBase = ({
                         <div className="flex flex-1 items-center gap-4">
                             <a
                                 aria-label="Go to homepage"
-                                href="/"
+                                href={logoHref}
                                 className="rounded-xs outline-focus-ring focus-visible:outline-2 focus-visible:outline-offset-2"
                             >
                                 <UntitledLogo className="h-8" />

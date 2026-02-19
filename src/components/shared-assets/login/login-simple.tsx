@@ -9,6 +9,7 @@ import { Input } from "@/components/base/input/input";
 import { UntitledLogoMinimal } from "@/components/foundations/logo/untitledui-logo-minimal";
 import { BackgroundPattern } from "@/components/shared-assets/background-patterns";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 
 const tabs = [
@@ -17,6 +18,17 @@ const tabs = [
 ];
 
 export const LoginSimple = () => {
+    const router = useRouter();
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const form = e.currentTarget;
+        if (!form.checkValidity()) return;
+
+        // Validation passed — redirect to dashboard
+        router.push("/app");
+    };
+
     return (
         <section className="relative min-h-screen overflow-hidden bg-primary px-4 py-12 md:px-8 md:pt-24">
             <div className="relative z-10 mx-auto flex w-full flex-col gap-8 sm:max-w-90">
@@ -39,11 +51,7 @@ export const LoginSimple = () => {
                 </div>
 
                 <Form
-                    onSubmit={(e) => {
-                        e.preventDefault();
-                        const data = Object.fromEntries(new FormData(e.currentTarget));
-                        console.log("Form data:", data);
-                    }}
+                    onSubmit={handleSubmit}
                     className="z-10 flex flex-col gap-6"
                 >
                     <div className="flex flex-col gap-5">
