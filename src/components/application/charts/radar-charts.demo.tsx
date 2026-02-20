@@ -9,9 +9,9 @@ interface CustomRadarChartTickProps {
     payload: { value: string };
     x: number;
     y: number;
-    textAnchor: string;
+    textAnchor: "end" | "start" | "inherit" | "middle" | undefined;
     stroke: string;
-    radius: number;
+    radius?: number;
 }
 
 export const CustomRadarChartTick = ({ payload, x, y, textAnchor, stroke, radius }: CustomRadarChartTickProps) => {
@@ -141,7 +141,7 @@ export const RadarChart = () => {
                     tickLine={false}
                     axisLine={false}
                 />
-                <PolarRadiusAxis textAnchor="middle" tick={(props) => <CustomRadarChartTick {...props} />} axisLine={false} angle={90} domain={[0, 1000]} />
+                <PolarRadiusAxis textAnchor="middle" tick={false} axisLine={false} angle={90} domain={[0, 1000]} />
 
                 <Tooltip
                     content={<ChartTooltipContent />}
