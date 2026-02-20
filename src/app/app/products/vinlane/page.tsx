@@ -1,5 +1,5 @@
-import { ComingSoonPage } from "../coming-soon";
+import { Dashboard08 } from "@/app/dashboards-08";
 
 export default function VinLanePage() {
-    return <ComingSoonPage productName="VinLane IMS" />;
+    return <Dashboard08 />;
 }

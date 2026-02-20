@@ -13,7 +13,7 @@
 # testing
 /coverage
 
-#original project
+#original project - not needed in git
 /original-web
 
 # next.js

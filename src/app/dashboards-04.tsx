@@ -6,8 +6,8 @@ import type { SortDescriptor } from "react-aria-components";
 import { Bar, BarChart, CartesianGrid, Cell, Pie, PieChart, Tooltip as RechartsTooltip, ResponsiveContainer, XAxis } from "recharts";
 import { ChartTooltipContent } from "@/components/application/charts/charts-base";
 import { MetricsIcon03 } from "@/components/application/metrics/metrics";
-import { PaginationPageMinimalCenter } from "@/components/application/pagination/pagination";
-import { Table, TableRowActionsDropdown } from "@/components/application/table/table";
+import { PaginationCardMinimal } from "@/components/application/pagination/pagination";
+import { Table, TableCard, TableRowActionsDropdown } from "@/components/application/table/table";
 import { TabList, Tabs } from "@/components/application/tabs/tabs";
 import { BadgeWithDot } from "@/components/base/badges/badges";
 import { Button } from "@/components/base/buttons/button";
@@ -108,6 +108,8 @@ const getHealthScoreColor = (score: number) => {
 
 export const Dashboard04 = () => {
     const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>();
+    const [page, setPage] = useState(1);
+    const itemsPerPage = 5;
 
     const sortedItems = useMemo(() => {
         if (!sortDescriptor) return vehicleScans;
@@ -294,59 +296,55 @@ export const Dashboard04 = () => {
                             </div>
                         </div>
 
-                        <div>
+                        <TableCard.Root className="-mx-4 mt-2 rounded-none lg:mx-0 lg:mt-0 lg:rounded-xl">
                             <Table
                                 aria-label="Vehicle scans"
                                 selectionMode="multiple"
                                 sortDescriptor={sortDescriptor}
                                 onSortChange={setSortDescriptor}
-                                className="bg-primary"
                             >
-                                <Table.Header className="bg-primary [&_*:first-of-type]:pl-0!">
+                                <Table.Header className="bg-primary">
                                     <Table.Head id="vin" label="Vehicle" isRowHeader allowsSorting className="w-full" />
-                                    <Table.Head id="scanType" label="Scan Type" allowsSorting className="max-lg:hidden" />
-                                    <Table.Head id="healthScore" label="Health Score" allowsSorting className="max-lg:hidden" />
-                                    <Table.Head id="issues" label="Issues" allowsSorting className="max-lg:hidden" />
-                                    <Table.Head id="date" label="Date" allowsSorting className="max-lg:hidden" />
+                                    <Table.Head id="scanType" label="Scan Type" allowsSorting />
+                                    <Table.Head id="healthScore" label="Health Score" allowsSorting />
+                                    <Table.Head id="issues" label="Issues" allowsSorting />
+                                    <Table.Head id="date" label="Date" allowsSorting />
                                     <Table.Head id="actions" />
                                 </Table.Header>
 
-                                <Table.Body items={sortedItems}>
+                                <Table.Body items={sortedItems.slice((page - 1) * itemsPerPage, page * itemsPerPage)}>
                                     {(scan) => (
-                                        <Table.Row id={scan.vin} className="[&>*:first-of-type]:pl-0!">
+                                        <Table.Row id={scan.vin}>
                                             <Table.Cell className="text-nowrap">
                                                 <p className="text-sm font-medium font-mono text-primary">{scan.vin}</p>
                                             </Table.Cell>
-                                            <Table.Cell className="text-nowrap max-lg:hidden">{scan.scanType}</Table.Cell>
-                                            <Table.Cell className="max-lg:hidden">
+                                            <Table.Cell className="text-nowrap">{scan.scanType}</Table.Cell>
+                                            <Table.Cell>
                                                 <BadgeWithDot
                                                     color={getHealthScoreColor(scan.healthScore) as "success" | "blue" | "warning" | "error"}
-                                                    type="modern"
+                                                    type="pill-color"
                                                     size="sm"
                                                 >
                                                     {scan.healthScore}
                                                 </BadgeWithDot>
                                             </Table.Cell>
-                                            <Table.Cell className="text-nowrap max-lg:hidden">
+                                            <Table.Cell className="text-nowrap">
                                                 {scan.issues === 0 ? "0 found" : `${scan.issues} found`}
                                             </Table.Cell>
-                                            <Table.Cell className="text-nowrap max-lg:hidden">{formatDate(scan.date)}</Table.Cell>
+                                            <Table.Cell className="text-nowrap">{formatDate(scan.date)}</Table.Cell>
 
-                                            <Table.Cell className="pr-0 pl-4">
-                                                <div className="flex justify-end gap-0.5 max-lg:hidden">
+                                            <Table.Cell className="px-4">
+                                                <div className="flex justify-end gap-0.5">
                                                     <ButtonUtility size="xs" color="tertiary" tooltip="Delete" icon={Trash01} />
                                                     <ButtonUtility size="xs" color="tertiary" tooltip="Edit" icon={Edit01} />
-                                                </div>
-                                                <div className="flex items-center justify-end lg:hidden">
-                                                    <TableRowActionsDropdown />
                                                 </div>
                                             </Table.Cell>
                                         </Table.Row>
                                     )}
                                 </Table.Body>
                             </Table>
-                            <PaginationPageMinimalCenter page={1} total={10} />
-                        </div>
+                            <PaginationCardMinimal page={page} total={Math.ceil(sortedItems.length / itemsPerPage)} align="center" onPageChange={setPage} />
+                        </TableCard.Root>
                     </div>
                 </div>
     );
