@@ -1,194 +1,85 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ArrowDown, ArrowUp, DownloadCloud02, Edit01, FilterLines, SearchLg, Settings03, Trash01 } from "@untitledui/icons";
+import { DownloadCloud02, FilterLines, SearchLg, Settings03 } from "@untitledui/icons";
 import type { SortDescriptor } from "react-aria-components";
 import {
     Bar,
     BarChart,
     CartesianGrid,
+    Cell,
     Label,
-    PolarAngleAxis,
-    PolarGrid,
-    PolarRadiusAxis,
-    Radar,
-    RadarChart,
     Tooltip as RechartsTooltip,
     ResponsiveContainer,
     XAxis,
     YAxis,
 } from "recharts";
 import { ChartTooltipContent } from "@/components/application/charts/charts-base";
-import { PaginationCardMinimal } from "@/components/application/pagination/pagination";
 import { Table, TableCard, TableRowActionsDropdown } from "@/components/application/table/table";
-import { BadgeWithDot, BadgeWithIcon } from "@/components/base/badges/badges";
 import { Button } from "@/components/base/buttons/button";
-import { ButtonUtility } from "@/components/base/buttons/button-utility";
 import { Input } from "@/components/base/input/input";
 import { useBreakpoint } from "@/hooks/use-breakpoint";
-import { cx } from "@/utils/cx";
 
 // Helper functions for formatting
 const formatCurrency = (value: number): string => {
     return `$${new Intl.NumberFormat("en-US").format(value)}`;
 };
 
-const formatDate = (timestamp: number): string => {
-    const date = new Date(timestamp);
-    const day = date.getDate().toString().padStart(2, "0");
-    const month = date.toLocaleString("en-US", { month: "short" });
-    const year = date.getFullYear();
-    return `${day} ${month} ${year}`;
+// Ranking colors
+const RANKING_COLORS: Record<string, string> = {
+    green: "#17B26A",
+    yellow: "#F79009",
+    red: "#F04438",
+    underRed: "#912018",
+    unranked: "#98A2B3",
 };
 
-// Pending Sales data
-const pendingSales = [
-    {
-        id: "ps-01",
-        vehicle: { year: 2024, make: "Toyota", model: "Camry", trim: "SE", stockNumber: "ST1042" },
-        vin: "1HGBH41JXMN109186",
-        buyer: "James Wilson",
-        price: 28500,
-        status: "pending_finance",
-        daysInPipeline: 3,
-        date: new Date(2025, 0, 22).getTime(),
-    },
-    {
-        id: "ps-02",
-        vehicle: { year: 2023, make: "Honda", model: "Accord", trim: "Sport", stockNumber: "ST1038" },
-        vin: "2HGFC2F59PH512345",
-        buyer: "Sarah Martinez",
-        price: 32200,
-        status: "pending_docs",
-        daysInPipeline: 5,
-        date: new Date(2025, 0, 20).getTime(),
-    },
-    {
-        id: "ps-03",
-        vehicle: { year: 2024, make: "Ford", model: "F-150", trim: "XLT", stockNumber: "ST1055" },
-        vin: "1FTFW1E87PFA67890",
-        buyer: "Michael Brown",
-        price: 45800,
-        status: "pending_finance",
-        daysInPipeline: 2,
-        date: new Date(2025, 0, 24).getTime(),
-    },
-    {
-        id: "ps-04",
-        vehicle: { year: 2023, make: "Chevrolet", model: "Silverado", trim: "LT", stockNumber: "ST1029" },
-        vin: "3GCUYEED3PG234567",
-        buyer: "Emily Chen",
-        price: 42300,
-        status: "pending_trade",
-        daysInPipeline: 7,
-        date: new Date(2025, 0, 18).getTime(),
-    },
-    {
-        id: "ps-05",
-        vehicle: { year: 2024, make: "BMW", model: "3 Series", trim: "330i", stockNumber: "ST1061" },
-        vin: "WBA5R1C50PW789012",
-        buyer: "David Thompson",
-        price: 48900,
-        status: "pending_finance",
-        daysInPipeline: 1,
-        date: new Date(2025, 0, 25).getTime(),
-    },
-    {
-        id: "ps-06",
-        vehicle: { year: 2023, make: "Nissan", model: "Altima", trim: "SV", stockNumber: "ST1033" },
-        vin: "1N4BL4DV3PN345678",
-        buyer: "Lisa Anderson",
-        price: 26800,
-        status: "pending_docs",
-        daysInPipeline: 4,
-        date: new Date(2025, 0, 21).getTime(),
-    },
-    {
-        id: "ps-07",
-        vehicle: { year: 2024, make: "Mercedes-Benz", model: "C-Class", trim: "C300", stockNumber: "ST1067" },
-        vin: "W1KWF8DB2PR456789",
-        buyer: "Robert Kim",
-        price: 52100,
-        status: "pending_finance",
-        daysInPipeline: 6,
-        date: new Date(2025, 0, 19).getTime(),
-    },
-    {
-        id: "ps-08",
-        vehicle: { year: 2023, make: "Audi", model: "A4", trim: "Premium", stockNumber: "ST1045" },
-        vin: "WAUDNAF44PN567890",
-        buyer: "Jennifer Lee",
-        price: 41500,
-        status: "pending_trade",
-        daysInPipeline: 8,
-        date: new Date(2025, 0, 17).getTime(),
-    },
-    {
-        id: "ps-09",
-        vehicle: { year: 2024, make: "Toyota", model: "RAV4", trim: "Limited", stockNumber: "ST1072" },
-        vin: "2T3P1RFV0PW678901",
-        buyer: "William Davis",
-        price: 38900,
-        status: "pending_finance",
-        daysInPipeline: 2,
-        date: new Date(2025, 0, 23).getTime(),
-    },
-    {
-        id: "ps-10",
-        vehicle: { year: 2023, make: "Honda", model: "CR-V", trim: "EX-L", stockNumber: "ST1036" },
-        vin: "7FARW2H93PE789012",
-        buyer: "Amanda Taylor",
-        price: 35600,
-        status: "pending_docs",
-        daysInPipeline: 3,
-        date: new Date(2025, 0, 22).getTime(),
-    },
+// Ranking by Age Group - stacked bar chart data
+const agingChartData = [
+    { age: "0-20", green: 850, yellow: 280, red: 100, underRed: 40, unranked: 41 },
+    { age: "21-30", green: 200, yellow: 130, red: 80, underRed: 30, unranked: 46 },
+    { age: "31-40", green: 120, yellow: 80, red: 60, underRed: 20, unranked: 27 },
+    { age: "41-50", green: 90, yellow: 70, red: 65, underRed: 25, unranked: 33 },
+    { age: "51-60", green: 40, yellow: 45, red: 50, underRed: 15, unranked: 20 },
+    { age: "61+", green: 180, yellow: 350, red: 620, underRed: 210, unranked: 800 },
 ];
 
-// Vehicle Inventory Aging - radar chart data (single series: vehicle count per aging range)
-const radarData = [
-    { subject: "0-30 Days", vehicles: 15 },
-    { subject: "31-45 Days", vehicles: 8 },
-    { subject: "46-60 Days", vehicles: 5 },
-    { subject: "61-90 Days", vehicles: 3 },
-    { subject: "90+ Days", vehicles: 2 },
+// Ranking Totals - bar chart data
+const rankingTotalsData = [
+    { ranking: "Under Red", count: 340, color: RANKING_COLORS.underRed },
+    { ranking: "Yellow", count: 955, color: RANKING_COLORS.yellow },
+    { ranking: "Green", count: 1480, color: RANKING_COLORS.green },
+    { ranking: "Red", count: 975, color: RANKING_COLORS.red },
+    { ranking: "Unranked", count: 967, color: RANKING_COLORS.unranked },
 ];
 
-// Inventory Value - bar chart data (vehicle count per price range)
-const barData = [
-    { range: "$0-10k", count: 2 },
-    { range: "$10-15k", count: 4 },
-    { range: "$15-20k", count: 6 },
-    { range: "$20-25k", count: 8 },
-    { range: "$25-35k", count: 5 },
-    { range: "$35-50k", count: 3 },
-    { range: "$50-75k", count: 2 },
-    { range: "$75k+", count: 1 },
+// Aging detail table data
+const agingTableData = [
+    { id: "age-0-20", age: "0-20", count: 1311, investTotal: 24296920, invPct: 19, investAvg: 21909, adjCtm: 83, markupTotal: 1333179, markupAvg: 2976, adjPctMkt: 101, mds: 60 },
+    { id: "age-21-30", age: "21-30", count: 486, investTotal: 12349746, invPct: 10, investAvg: 25945, adjCtm: 89, markupTotal: 417887, markupAvg: 1833, adjPctMkt: 99, mds: 67 },
+    { id: "age-31-40", age: "31-40", count: 307, investTotal: 7871712, invPct: 6, investAvg: 26327, adjCtm: 90, markupTotal: 139451, markupAvg: 1048, adjPctMkt: 99, mds: 61 },
+    { id: "age-41-50", age: "41-50", count: 283, investTotal: 7390036, invPct: 6, investAvg: 26393, adjCtm: 91, markupTotal: 112729, markupAvg: 964, adjPctMkt: 98, mds: 70 },
+    { id: "age-51-60", age: "51-60", count: 170, investTotal: 4893193, invPct: 4, investAvg: 29477, adjCtm: 94, markupTotal: 27331, markupAvg: 350, adjPctMkt: 97, mds: 65 },
+    { id: "age-61+", age: "61+", count: 2160, investTotal: 72008933, invPct: 56, investAvg: 35933, adjCtm: 206, markupTotal: 1067956, markupAvg: 1301, adjPctMkt: 118, mds: 57 },
 ];
+
+const agingTotalRow = {
+    id: "age-total", age: "Total", count: 4717, investTotal: 128810540, invPct: 100, investAvg: 29721,
+    adjCtm: 140, markupTotal: 3098533, markupAvg: 1698, adjPctMkt: 109, mds: 60,
+};
 
 export const Dashboard08 = () => {
     const isDesktop = useBreakpoint("lg");
 
     const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>();
-    const [page, setPage] = useState(1);
-    const itemsPerPage = 5;
 
-    const sortedItems = useMemo(() => {
-        if (!sortDescriptor) return pendingSales;
+    const sortedRows = useMemo(() => {
+        if (!sortDescriptor) return agingTableData;
 
-        return pendingSales.toSorted((a, b) => {
-            const column = sortDescriptor.column as string;
-
-            let first: string | number = "";
-            let second: string | number = "";
-
-            if (column === "vehicle") {
-                first = `${a.vehicle.year} ${a.vehicle.make} ${a.vehicle.model}`;
-                second = `${b.vehicle.year} ${b.vehicle.make} ${b.vehicle.model}`;
-            } else if (column === "price" || column === "daysInPipeline") {
-                first = a[column];
-                second = b[column];
-            }
+        return agingTableData.toSorted((a, b) => {
+            const column = sortDescriptor.column as keyof typeof a;
+            const first = a[column];
+            const second = b[column];
 
             if (typeof first === "number" && typeof second === "number") {
                 return sortDescriptor.direction === "ascending" ? first - second : second - first;
@@ -205,6 +96,7 @@ export const Dashboard08 = () => {
 
     return (
         <div className="flex flex-col gap-8">
+            {/* Page header */}
             <div className="mx-auto flex w-full max-w-container flex-col justify-between gap-4 px-4 lg:flex-row lg:px-8">
                 <p className="text-xl font-semibold text-primary lg:text-display-xs">VinLane IMS</p>
                 <div className="flex gap-3">
@@ -221,144 +113,87 @@ export const Dashboard08 = () => {
                 </div>
             </div>
 
+            {/* Charts Row */}
             <div className="mx-auto flex w-full max-w-container flex-col gap-6 px-4 lg:flex-row lg:px-8">
-                {/* Vehicle Inventory Aging - Radar Chart */}
-                <div className="flex flex-col rounded-xl shadow-xs ring-1 ring-secondary ring-inset lg:w-125">
-                    <div className="flex flex-col gap-1 px-4 py-5 lg:p-6">
-                        <div className="flex items-start justify-between pb-5">
-                            <p className="text-md font-semibold text-primary lg:text-lg">Vehicle Inventory Aging</p>
-                            <TableRowActionsDropdown />
-                        </div>
-                        <ResponsiveContainer className="relative min-h-[295.13px] lg:min-h-93">
-                            <RadarChart
-                                cy="54%"
-                                outerRadius="86%"
-                                data={radarData}
-                                margin={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                                className="font-medium text-tertiary [&_.recharts-polar-grid]:text-utility-gray-100 [&_.recharts-text]:text-sm"
-                            >
-                                <PolarGrid stroke="currentColor" className="text-utility-gray-100" />
-                                <PolarAngleAxis
-                                    dataKey="subject"
-                                    stroke="currentColor"
-                                    tick={({ x, y, textAnchor, index, payload, verticalAnchor: _vA, ...props }) => (
-                                        <text
-                                            x={x}
-                                            y={index === 0 ? (y as number) - 14 : index === 3 || index === 4 ? (y as number) + 10 : (y as number)}
-                                            textAnchor={textAnchor}
-                                            {...props}
-                                            className={cx("recharts-text recharts-polar-angle-axis-tick-value", props.className)}
-                                        >
-                                            <tspan dy="0em" className="fill-utility-gray-700 text-xs font-medium lg:text-sm">
-                                                {payload.value}
-                                            </tspan>
-                                        </text>
-                                    )}
-                                    tickLine={false}
-                                    axisLine={false}
-                                />
-                                <PolarRadiusAxis
-                                    textAnchor="middle"
-                                    tick={false}
-                                    tickCount={5}
-                                    axisLine={false}
-                                    angle={90}
-                                    domain={[0, 20]}
-                                />
-
-                                <RechartsTooltip
-                                    content={<ChartTooltipContent />}
-                                    cursor={{
-                                        className: "stroke-utility-brand-600 stroke-2",
-                                        style: { transform: "translateZ(0)" },
-                                    }}
-                                />
-
-                                <Radar
-                                    isAnimationActive={false}
-                                    className="text-utility-brand-600"
-                                    dataKey="vehicles"
-                                    name="Vehicles"
-                                    stroke="currentColor"
-                                    strokeWidth={2}
-                                    strokeLinejoin="round"
-                                    fill="currentColor"
-                                    fillOpacity={0.2}
-                                    activeDot={{ className: "fill-bg-primary stroke-utility-brand-600 stroke-2" }}
-                                />
-                            </RadarChart>
-                        </ResponsiveContainer>
-                    </div>
-                    <div className="flex justify-end border-t border-secondary px-4 py-3 lg:px-6 lg:py-4">
-                        <Button size="md" color="secondary">
-                            View full report
-                        </Button>
-                    </div>
-                </div>
-
-                {/* Inventory Value - Bar Chart */}
+                {/* Ranking by Age Group - Stacked Bar Chart */}
                 <div className="flex flex-1 flex-col gap-1 rounded-xl px-4 py-5 shadow-xs ring-1 ring-secondary ring-inset lg:p-6">
                     <div className="flex items-start justify-between pb-5">
                         <div className="flex flex-col gap-0.5">
-                            <p className="text-md font-semibold text-primary lg:text-lg">Inventory Value</p>
-                            <p className="text-sm text-tertiary">Vehicle count by price range.</p>
+                            <p className="text-md font-semibold text-primary lg:text-lg">Ranking by Age Group</p>
+                            <p className="text-sm text-tertiary">Vehicle count by aging bucket and price ranking.</p>
                         </div>
                         <TableRowActionsDropdown />
                     </div>
                     <ResponsiveContainer className="min-h-70.5">
                         <BarChart
-                            data={barData}
+                            data={agingChartData}
                             margin={{ left: 4, right: 0, bottom: isDesktop ? 16 : 0 }}
                             className="text-tertiary [&_.recharts-text]:text-xs"
                         >
                             <CartesianGrid vertical={false} stroke="currentColor" className="text-utility-gray-100" />
-
-                            <XAxis
-                                fill="currentColor"
-                                axisLine={false}
-                                tickLine={false}
-                                tickMargin={2}
-                                dataKey="range"
-                            >
-                                {isDesktop && <Label value="Price Range" fill="currentColor" className="!text-xs font-medium" position="bottom" />}
+                            <XAxis fill="currentColor" axisLine={false} tickLine={false} tickMargin={2} dataKey="age">
+                                {isDesktop && <Label value="Age (Days)" fill="currentColor" className="!text-xs font-medium" position="bottom" />}
                             </XAxis>
-
                             <YAxis hide={!isDesktop} fill="currentColor" axisLine={false} tickLine={false} allowDecimals={false}>
-                                <Label
-                                    value="Vehicles"
-                                    fill="currentColor"
-                                    className="!text-xs font-medium"
-                                    style={{ textAnchor: "middle" }}
-                                    angle={-90}
-                                    position="insideLeft"
-                                />
+                                <Label value="Vehicles" fill="currentColor" className="!text-xs font-medium" style={{ textAnchor: "middle" }} angle={-90} position="insideLeft" />
                             </YAxis>
+                            <RechartsTooltip content={<ChartTooltipContent />} cursor={{ className: "fill-utility-gray-200/20" }} />
+                            <Bar dataKey="green" name="Green" stackId="ranking" fill={RANKING_COLORS.green} isAnimationActive={false} maxBarSize={isDesktop ? 40 : 20} />
+                            <Bar dataKey="yellow" name="Yellow" stackId="ranking" fill={RANKING_COLORS.yellow} isAnimationActive={false} maxBarSize={isDesktop ? 40 : 20} />
+                            <Bar dataKey="red" name="Red" stackId="ranking" fill={RANKING_COLORS.red} isAnimationActive={false} maxBarSize={isDesktop ? 40 : 20} />
+                            <Bar dataKey="underRed" name="Under Red" stackId="ranking" fill={RANKING_COLORS.underRed} isAnimationActive={false} maxBarSize={isDesktop ? 40 : 20} />
+                            <Bar dataKey="unranked" name="Unranked" stackId="ranking" fill={RANKING_COLORS.unranked} isAnimationActive={false} maxBarSize={isDesktop ? 40 : 20} radius={[4, 4, 0, 0]} />
+                        </BarChart>
+                    </ResponsiveContainer>
+                    <div className="flex flex-wrap gap-x-4 gap-y-2 pt-2">
+                        {Object.entries(RANKING_COLORS).map(([key, color]) => (
+                            <div key={key} className="flex items-center gap-1.5 text-xs text-tertiary">
+                                <span className="size-2.5 rounded-full" style={{ backgroundColor: color }} />
+                                {key === "underRed" ? "Under Red" : key.charAt(0).toUpperCase() + key.slice(1)}
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
-                            <RechartsTooltip
-                                content={<ChartTooltipContent />}
-                                cursor={{ className: "fill-utility-gray-200/20" }}
-                            />
-
-                            <Bar
-                                isAnimationActive={false}
-                                className="text-utility-brand-600"
-                                dataKey="count"
-                                name="Vehicles"
-                                fill="currentColor"
-                                maxBarSize={isDesktop ? 32 : 16}
-                                radius={[6, 6, 0, 0]}
-                            />
+                {/* Ranking Totals - Bar Chart */}
+                <div className="flex flex-col gap-1 rounded-xl px-4 py-5 shadow-xs ring-1 ring-secondary ring-inset lg:w-110 lg:p-6">
+                    <div className="flex items-start justify-between pb-5">
+                        <div className="flex flex-col gap-0.5">
+                            <p className="text-md font-semibold text-primary lg:text-lg">Ranking Totals</p>
+                            <p className="text-sm text-tertiary">Total vehicles by price ranking.</p>
+                        </div>
+                        <TableRowActionsDropdown />
+                    </div>
+                    <ResponsiveContainer className="min-h-70.5">
+                        <BarChart
+                            data={rankingTotalsData}
+                            margin={{ left: 4, right: 0, bottom: isDesktop ? 16 : 0 }}
+                            className="text-tertiary [&_.recharts-text]:text-xs"
+                        >
+                            <CartesianGrid vertical={false} stroke="currentColor" className="text-utility-gray-100" />
+                            <XAxis fill="currentColor" axisLine={false} tickLine={false} tickMargin={2} dataKey="ranking">
+                                {isDesktop && <Label value="Ranking" fill="currentColor" className="!text-xs font-medium" position="bottom" />}
+                            </XAxis>
+                            <YAxis hide={!isDesktop} fill="currentColor" axisLine={false} tickLine={false} allowDecimals={false}>
+                                <Label value="Vehicles" fill="currentColor" className="!text-xs font-medium" style={{ textAnchor: "middle" }} angle={-90} position="insideLeft" />
+                            </YAxis>
+                            <RechartsTooltip content={<ChartTooltipContent />} cursor={{ className: "fill-utility-gray-200/20" }} />
+                            <Bar dataKey="count" name="Vehicles" isAnimationActive={false} maxBarSize={isDesktop ? 40 : 20} radius={[4, 4, 0, 0]}>
+                                {rankingTotalsData.map((entry, index) => (
+                                    <Cell key={index} fill={entry.color} />
+                                ))}
+                            </Bar>
                         </BarChart>
                     </ResponsiveContainer>
                 </div>
             </div>
 
-            {/* Pending Sales Table */}
+            {/* Aging Detail Table */}
             <div className="mx-auto flex w-full max-w-container flex-col gap-4 px-4 lg:gap-6 lg:px-8">
                 <div className="flex justify-between gap-4">
                     <div className="flex flex-col gap-0.5">
-                        <p className="text-lg font-semibold text-primary">Pending Sales</p>
-                        <p className="text-sm text-tertiary">Track vehicles in the sales pipeline.</p>
+                        <p className="text-lg font-semibold text-primary">Inventory Aging Details</p>
+                        <p className="text-sm text-tertiary">Investment, markup, and market data by age group.</p>
                     </div>
                     <Input icon={SearchLg} shortcut aria-label="Search" placeholder="Search" size="sm" className="hidden w-80 lg:inline-flex" />
                 </div>
@@ -371,77 +206,65 @@ export const Dashboard08 = () => {
 
                 <TableCard.Root className="-mx-4 mt-2 rounded-none lg:mx-0 lg:mt-0 lg:rounded-xl">
                     <Table
-                        aria-label="Pending Sales"
-                        selectionMode="multiple"
+                        aria-label="Inventory Aging Details"
                         sortDescriptor={sortDescriptor}
                         onSortChange={setSortDescriptor}
                     >
                         <Table.Header className="bg-primary">
-                            <Table.Head id="vehicle" isRowHeader allowsSorting label="Vehicle" className="w-full" />
-                            <Table.Head id="vin" label="VIN" />
-                            <Table.Head id="buyer" label="Buyer" />
-                            <Table.Head id="price" allowsSorting label="Price" />
-                            <Table.Head id="status" label="Status" />
-                            <Table.Head id="daysInPipeline" allowsSorting label="Days" />
-                            <Table.Head id="actions" />
+                            <Table.Head id="age" isRowHeader label="Age" />
+                            <Table.Head id="count" allowsSorting label="Count" />
+                            <Table.Head id="investTotal" allowsSorting label="Inv. Total" />
+                            <Table.Head id="invPct" allowsSorting label="Inv %" />
+                            <Table.Head id="investAvg" allowsSorting label="Inv. Avg" />
+                            <Table.Head id="adjCtm" allowsSorting label="Adj. CTM" />
+                            <Table.Head id="markupTotal" allowsSorting label="Mkp. Total" />
+                            <Table.Head id="markupAvg" allowsSorting label="Mkp. Avg" />
+                            <Table.Head id="adjPctMkt" allowsSorting label="Adj. % Mkt" />
+                            <Table.Head id="mds" allowsSorting label="MDS" />
                         </Table.Header>
-                        <Table.Body items={sortedItems.slice((page - 1) * itemsPerPage, page * itemsPerPage)}>
-                            {(sale) => (
-                                <Table.Row id={sale.id}>
+                        <Table.Body items={[...sortedRows, agingTotalRow]}>
+                            {(row) => (
+                                <Table.Row id={row.id} className={row.id === "age-total" ? "bg-secondary/50" : ""}>
                                     <Table.Cell>
-                                        <p className="text-sm font-medium text-primary text-nowrap">
-                                            {sale.vehicle.year} {sale.vehicle.make} {sale.vehicle.model} #{sale.vehicle.stockNumber}
-                                        </p>
+                                        <span className={row.id === "age-total" ? "text-sm font-semibold text-utility-brand-600" : "text-sm font-medium text-utility-brand-600"}>
+                                            {row.age}
+                                        </span>
                                     </Table.Cell>
                                     <Table.Cell>
-                                        <span className="font-mono text-xs text-tertiary">{sale.vin}</span>
+                                        <span className="text-sm text-primary text-nowrap">{new Intl.NumberFormat("en-US").format(row.count)}</span>
                                     </Table.Cell>
                                     <Table.Cell>
-                                        <p className="text-sm text-primary text-nowrap">{sale.buyer}</p>
+                                        <span className="text-sm text-primary text-nowrap">{formatCurrency(row.investTotal)}</span>
                                     </Table.Cell>
                                     <Table.Cell>
-                                        <span className="text-sm font-medium text-primary">{formatCurrency(sale.price)}</span>
+                                        <span className="text-sm text-primary text-nowrap">{row.invPct}%</span>
                                     </Table.Cell>
                                     <Table.Cell>
-                                        <BadgeWithDot
-                                            size="sm"
-                                            type="pill-color"
-                                            color={
-                                                sale.status === "pending_finance"
-                                                    ? "warning"
-                                                    : sale.status === "pending_docs"
-                                                      ? "blue"
-                                                      : "brand"
-                                            }
-                                        >
-                                            {sale.status === "pending_finance"
-                                                ? "Pending Finance"
-                                                : sale.status === "pending_docs"
-                                                  ? "Pending Docs"
-                                                  : "Pending Trade"}
-                                        </BadgeWithDot>
+                                        <span className="text-sm text-primary text-nowrap">{formatCurrency(row.investAvg)}</span>
                                     </Table.Cell>
                                     <Table.Cell>
-                                        <BadgeWithIcon
-                                            iconLeading={sale.daysInPipeline > 5 ? ArrowUp : ArrowDown}
-                                            size="sm"
-                                            type="pill-color"
-                                            color={sale.daysInPipeline > 5 ? "error" : "success"}
-                                        >
-                                            {sale.daysInPipeline}d
-                                        </BadgeWithIcon>
+                                        <span className={`text-sm text-nowrap ${row.adjCtm > 100 ? "font-medium text-utility-error-600" : "text-primary"}`}>
+                                            {row.adjCtm}%
+                                        </span>
                                     </Table.Cell>
-                                    <Table.Cell className="px-4">
-                                        <div className="flex justify-end gap-0.5">
-                                            <ButtonUtility size="xs" color="tertiary" tooltip="Delete" icon={Trash01} />
-                                            <ButtonUtility size="xs" color="tertiary" tooltip="Edit" icon={Edit01} />
-                                        </div>
+                                    <Table.Cell>
+                                        <span className="text-sm text-primary text-nowrap">{formatCurrency(row.markupTotal)}</span>
+                                    </Table.Cell>
+                                    <Table.Cell>
+                                        <span className="text-sm text-primary text-nowrap">{formatCurrency(row.markupAvg)}</span>
+                                    </Table.Cell>
+                                    <Table.Cell>
+                                        <span className={`text-sm text-nowrap ${row.adjPctMkt > 105 ? "font-medium text-utility-error-600" : row.adjPctMkt < 98 ? "font-medium text-utility-warning-600" : "text-primary"}`}>
+                                            {row.adjPctMkt}%
+                                        </span>
+                                    </Table.Cell>
+                                    <Table.Cell>
+                                        <span className="text-sm text-primary">{row.mds}</span>
                                     </Table.Cell>
                                 </Table.Row>
                             )}
                         </Table.Body>
                     </Table>
-                    <PaginationCardMinimal page={page} total={Math.ceil(sortedItems.length / itemsPerPage)} align="center" onPageChange={setPage} />
                 </TableCard.Root>
             </div>
         </div>
