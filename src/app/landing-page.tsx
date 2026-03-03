@@ -20,6 +20,7 @@ import reconLogo from "@/assets/logo/brands/recon.png";
 import smartscanLogo from "@/assets/logo/brands/smartscan.png";
 import vinclipsLogo from "@/assets/logo/brands/vinclips.png";
 import vinlaneLogo from "@/assets/logo/brands/vinlane.png";
+import capitalLogo from "@/assets/logo/brands/capital.png";
 import websiteLogo from "@/assets/logo/brands/website.png";
 import writingImage1 from "@/assets/images/writings/image1.png";
 import writingImage2 from "@/assets/images/writings/image2.png";
@@ -110,6 +111,7 @@ const HeroAbstractAngles01 = () => {
                         <div className="mx-auto max-w-5xl rounded-2xl bg-white/10 px-6 py-6 ring-1 ring-white/20 backdrop-blur-xl ring-inset md:px-10 md:py-8">
                             <p className="mb-5 text-center text-md font-medium text-white/70">Join 7+ AI-Powered Products</p>
                             <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 xl:gap-x-8">
+                                <img alt="Capital" src={capitalLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
                                 <img alt="Acquisition" src={acquisitionLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
                                 <img alt="Automall" src={automallLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
                                 <img alt="Recon" src={reconLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
@@ -133,6 +135,7 @@ const SocialProofFullWidth = () => {
                 <div className="flex flex-col gap-8">
                     <p className="text-center text-md mt-16 font-medium text-tertiary">Join 7+ AI-Powered Products</p>
                     <div className="flex flex-wrap justify-center gap-x-10 gap-y-6 xl:gap-x-8">
+                        <img alt="Capital" src={capitalLogo.src} className="h-12 md:h-16" />
                         <img alt="Acquisition" src={acquisitionLogo.src} className="h-12 md:h-16" />
                         <img alt="Automall" src={automallLogo.src} className="h-12 md:h-16" />
                         <img alt="Recon" src={reconLogo.src} className="h-12 md:h-16" />
@@ -603,6 +606,7 @@ const CTASimpleLogos02 = () => {
                         </div>
                     </div>
                     <div className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-6 lg:mt-0">
+                        <img alt="Capital" src={capitalLogo.src} className="h-10 md:h-12" />
                         <img alt="VinLane" src={vinlaneLogo.src} className="h-10 md:h-12" />
                         <img alt="SmartScan" src={smartscanLogo.src} className="h-10 md:h-12" />
                         <img alt="Automall" src={automallLogo.src} className="h-10 md:h-12" />

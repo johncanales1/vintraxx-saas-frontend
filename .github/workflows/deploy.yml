@@ -1,0 +1,51 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to EC2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script_stop: true
+          script: |
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+            APP_DIR="$HOME/vintraxx-frontend-dev"
+            REPO_URL="https://github.com/johncanales1/vintraxx-saas-frontend.git"
+
+            # Clone if not exists, otherwise pull
+            if [ ! -d "$APP_DIR" ]; then
+              git clone "$REPO_URL" "$APP_DIR"
+            fi
+
+            cd "$APP_DIR"
+            git fetch origin main
+            git checkout main
+            git reset --hard origin/main
+
+            # Install dependencies
+            npm install --legacy-peer-deps
+
+            # Build the Next.js app
+            npm run build
+
+            # Restart with PM2
+            if pm2 describe vintraxx-frontend > /dev/null 2>&1; then
+              pm2 restart vintraxx-frontend
+            else
+              pm2 start npm --name "vintraxx-frontend" -- start
+            fi
+
+            pm2 save
