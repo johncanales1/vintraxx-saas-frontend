@@ -1,10 +1,16 @@
 "use client";
 
-import { Car01, Tool02, Scan, VideoRecorder, Globe01, ShoppingCart01, BarChart03 } from "@untitledui/icons";
+import { Bank, Car01, Tool02, Scan, VideoRecorder, Globe01, ShoppingCart01, BarChart03 } from "@untitledui/icons";
 import { Button } from "@/components/base/buttons/button";
 import { NavMenuItemLink } from "./base-components/nav-menu-item";
 
 const items = [
+    {
+        title: "VinTraxx Capital",
+        subtitle: "Dealer-focused financing solutions with fast approvals and flexible terms.",
+        href: "/products/capital",
+        Icon: Bank,
+    },
     {
         title: "VinLane IMS",
         subtitle: "Intelligent inventory management with real-time tracking and analytics.",
