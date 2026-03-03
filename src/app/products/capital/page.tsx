@@ -15,6 +15,9 @@ import { cx } from "@/utils/cx";
 import Link from "next/link";
 import capitalLogo from "@/assets/logo/brands/capital.png";
 import capitalAdImage from "@/assets/images/capital-ad.jpeg";
+import johnImage from "@/assets/images/team/john.jpg";
+import dyannaImage from "@/assets/images/team/dyanna.jpg";
+import travisImage from "@/assets/images/team/travis.jpg";
 
 // ─── Footer nav ───
 const footerNavList = [
@@ -440,20 +443,20 @@ const CommonQuestions = () => {
                 <div className="mt-12 flex flex-col items-center gap-6 rounded-2xl bg-secondary px-6 py-8 text-center md:mt-16 md:gap-8 md:pt-8 md:pb-10">
                     <div className="flex items-end -space-x-4">
                         <Avatar
-                            src="https://www.untitledui.com/images/avatars/marco-kelly?fm=webp&q=80"
-                            alt="Marco Kelly"
+                            src={travisImage.src}
+                            alt="Travis"
                             size="lg"
                             className="ring-[1.5px] ring-fg-white"
                         />
                         <Avatar
-                            src="https://www.untitledui.com/images/avatars/amelie-laurent?fm=webp&q=80"
-                            alt="Amelie Laurent"
+                            src={johnImage.src}
+                            alt="John Canales"
                             size="xl"
                             className="z-10 ring-[1.5px] ring-fg-white"
                         />
                         <Avatar
-                            src="https://www.untitledui.com/images/avatars/jaya-willis?fm=webp&q=80"
-                            alt="Jaya Willis"
+                            src={dyannaImage.src}
+                            alt="Dyanna"
                             size="lg"
                             className="ring-[1.5px] ring-fg-white"
                         />
