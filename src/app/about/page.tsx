@@ -51,12 +51,6 @@ const teamMembers = [
         linkedIn: "https://www.linkedin.com/in/travis-wisenbarger-9580351b/",
     },
     {
-        name: "Sheila Hartwell",
-        title: "Co-Founder & Chief Success Officer",
-        avatarUrl: sheilaImage.src,
-        linkedIn: "https://www.linkedin.com/in/sheila-hartwell-b557212/",
-    },
-    {
         name: "Dyanna Rossini",
         title: "Chief Innovation Officer & Board President",
         avatarUrl: dyannaImage.src,
@@ -68,11 +62,10 @@ const footerNavList = [
     {
         label: "Products",
         items: [
-            { label: "VinLane IMS", href: "/products/vinlane" },
-            { label: "VinTraxx Recon", href: "/products/recon" },
+            { label: "VinTraxx Capital", href: "/products/capital" },
             { label: "SmartScan", href: "/products/smartscan" },
+            { label: "VinLane IMS", href: "/products/vinlane" },
             { label: "VinClips", href: "/products/vinclips" },
-            { label: "Auto Mall", href: "/products/automall" },
             { label: "Acquisition.io", href: "/products/acquisition" },
         ],
     },
@@ -288,10 +281,6 @@ export default function AboutPage() {
             <SectionDivider />
 
             <TeamSection />
-
-            <SectionDivider />
-
-            <MetricsSection />
 
             <FooterLarge />
         </div>

@@ -101,7 +101,7 @@ const comparisonSections = [
 ];
 
 const footerNavList = [
-    { label: "Products", items: [{ label: "VinLane IMS", href: "/products/vinlane" }, { label: "VinTraxx Recon", href: "/products/recon" }, { label: "SmartScan", href: "/products/smartscan" }, { label: "VinClips", href: "/products/vinclips" }, { label: "Auto Mall", href: "/products/automall" }, { label: "Acquisition.io", href: "/products/acquisition" }] },
+    { label: "Products", items: [{ label: "VinTraxx Capital", href: "/products/capital" }, { label: "SmartScan", href: "/products/smartscan" }, { label: "VinLane IMS", href: "/products/vinlane" }, { label: "VinClips", href: "/products/vinclips" }, { label: "Acquisition.io", href: "/products/acquisition" }] },
     { label: "Company", items: [{ label: "About us", href: "/about" }, { label: "Careers", href: "/careers" }, { label: "Press", href: "/press" }, { label: "News", href: "/news" }, { label: "Contact", href: "/contact" }] },
     { label: "Resources", items: [{ label: "Blog", href: "/blog" }, { label: "Help Center", href: "/help" }, { label: "Documentation", href: "/docs" }, { label: "Training", href: "/training" }, { label: "Support", href: "/support" }] },
     { label: "For Dealers", items: [{ label: "Independent Dealers", href: "/dealers/independent" }, { label: "Franchise Dealers", href: "/dealers/franchise" }, { label: "Dealer Groups", href: "/dealers/groups" }, { label: "Success Stories", href: "/success-stories" }] },

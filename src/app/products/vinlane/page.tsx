@@ -320,11 +320,10 @@ const footerNavList = [
     {
         label: "Products",
         items: [
-            { label: "VinLane IMS", href: "/products/vinlane" },
-            { label: "VinTraxx Recon", href: "/products/recon" },
+            { label: "VinTraxx Capital", href: "/products/capital" },
             { label: "SmartScan", href: "/products/smartscan" },
+            { label: "VinLane IMS", href: "/products/vinlane" },
             { label: "VinClips", href: "/products/vinclips" },
-            { label: "Auto Mall", href: "/products/automall" },
             { label: "Acquisition.io", href: "/products/acquisition" },
         ],
     },
