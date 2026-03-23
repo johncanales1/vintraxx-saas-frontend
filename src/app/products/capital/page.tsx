@@ -1,7 +1,7 @@
 "use client";
 
 import { Fragment, useState } from "react";
-import { Bank, Building07, Car01, Clock, CurrencyDollar, FileCheck02, Heart, Home05, Lock01, PlayCircle, ShieldTick, Tool01, TrendUp01, Truck01, Users01, ZapFast } from "@untitledui/icons";
+import { Bank, Building07, Car01, CheckCircle, Clock, CreditCard02, CurrencyDollar, Heart, Home05, Lock01, Phone01, PlayCircle, ShieldTick, Tool01, Truck01, Users01, ZapFast } from "@untitledui/icons";
 import { motion } from "motion/react";
 import { Avatar } from "@/components/base/avatar/avatar";
 import { Button } from "@/components/base/buttons/button";
@@ -14,7 +14,6 @@ import { SectionDivider } from "@/components/shared-assets/section-divider";
 import { cx } from "@/utils/cx";
 import Link from "next/link";
 import capitalLogo from "@/assets/logo/brands/capital.png";
-import capitalAdImage from "@/assets/images/capital-ad.jpeg";
 import johnImage from "@/assets/images/team/john.jpg";
 import dyannaImage from "@/assets/images/team/dyanna.jpg";
 import travisImage from "@/assets/images/team/travis.jpg";
@@ -25,11 +24,10 @@ const footerNavList = [
         label: "Products",
         items: [
             { label: "VinTraxx Capital", href: "/products/capital" },
-            { label: "VinLane IMS", href: "/products/vinlane" },
-            { label: "VinTraxx Recon", href: "/products/recon" },
             { label: "SmartScan", href: "/products/smartscan" },
+            { label: "VinLane IMS", href: "/products/vinlane" },
             { label: "VinClips", href: "/products/vinclips" },
-            { label: "Auto Mall", href: "/products/automall" },
+            { label: "Acquisition.io", href: "/products/acquisition" },
         ],
     },
     {
@@ -103,31 +101,23 @@ const HeroSplitImage = () => {
 
             <Header />
 
-            <section className="py-16 md:pb-24">
-                <div className="relative mx-auto grid max-w-container grid-cols-1 gap-16 px-4 md:px-8 lg:min-h-160 lg:items-center">
-                    <div className="z-10 flex max-w-200 flex-col items-start">
+            <section className="py-16 md:py-24">
+                <div className="relative mx-auto max-w-container px-4 md:px-8">
+                    <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
                         <img src={capitalLogo.src} alt="VinTraxx Capital" className="mb-6 h-14 object-contain md:h-16" />
                         <h1 className="text-display-md font-semibold text-primary md:text-display-lg lg:text-display-xl">
-                            Finance Your Customers. Grow Your Business.
+                            Help Your Customers Pay. Close More Deals.
                         </h1>
-                        <p className="mt-4 max-w-xl text-lg text-tertiary md:mt-6 md:text-xl">
-                            Dealer-focused floor plan financing with fast approvals, flexible terms, and the capital you need to keep your lot stocked and profits growing.
+                        <p className="mt-4 max-w-2xl text-lg text-tertiary md:mt-6 md:text-xl">
+                            Offer your customers short-term financing for accessories, tires, wheels, service repairs, and more. VinTraxx Capital helps you close more sales by giving customers flexible payment options right at checkout.
                         </p>
 
-                        <div className="mt-8 flex w-full flex-col-reverse items-stretch gap-3 md:mt-12 md:flex-row md:items-start">
+                        <div className="mt-8 flex w-full flex-col-reverse items-stretch justify-center gap-3 sm:flex-row sm:items-start md:mt-12">
                             <Button color="secondary" size="xl" iconLeading={PlayCircle}>
                                 Learn More
                             </Button>
-                            <Button size="xl">Apply Now</Button>
+                            <Button size="xl">Get Started</Button>
                         </div>
-                    </div>
-
-                    <div className="relative lg:absolute lg:top-0 lg:right-8 lg:h-full lg:w-140">
-                        <img
-                            className="inset-0 h-60 w-full rounded-tr-[32px] rounded-bl-[32px] object-cover md:h-110 md:rounded-tr-[64px] md:rounded-bl-[64px] lg:h-full"
-                            src={capitalAdImage.src}
-                            alt="VinTraxx Capital"
-                        />
                     </div>
                 </div>
             </section>
@@ -142,7 +132,7 @@ const MetricsBar = () => {
             <div className="mx-auto max-w-container px-4 md:px-8">
                 <dl className="flex w-full flex-col justify-center gap-8 md:flex-row md:gap-4">
                     {[
-                        { title: "$16–$25K", subtitle: "Avg. Vehicle Price" },
+                        { title: "$1K–$25K", subtitle: "Financing Available" },
                         { title: "24–72 hr", subtitle: "Approval Time" },
                         { title: "High", subtitle: "Approval Rate" },
                         { title: "Same-Day", subtitle: "Funding Available" },
@@ -161,7 +151,43 @@ const MetricsBar = () => {
     );
 };
 
-// ─── Feature icon box (landing-page-19 style) ───
+// ─── How It Works ───
+const HowItWorks = () => {
+    return (
+        <section className="bg-primary py-16 md:py-24">
+            <div className="mx-auto w-full max-w-container px-4 md:px-8">
+                <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
+                    <span className="text-sm font-semibold text-brand-secondary md:text-md">How It Works</span>
+                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">Financing That Works for Everyone</h2>
+                    <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">
+                        Your customers get the payment flexibility they need. You get paid upfront. It&apos;s a win-win.
+                    </p>
+                </div>
+
+                <div className="mt-12 grid grid-cols-1 gap-8 md:mt-16 md:grid-cols-3">
+                    {[
+                        { icon: Phone01, title: "Customer Applies at Checkout", desc: "Your customer fills out a quick application on their phone or your terminal — takes less than 2 minutes." },
+                        { icon: CheckCircle, title: "Instant Decision", desc: "Get a real-time approval decision. Most customers are approved within seconds for financing up to $25,000." },
+                        { icon: CurrencyDollar, title: "You Get Paid, They Pay Over Time", desc: "You receive the full payment upfront. Your customer pays in affordable installments over time." },
+                    ].map((item) => {
+                        const Icon = item.icon;
+                        return (
+                            <div key={item.title} className="flex flex-col items-center text-center">
+                                <div className="mb-4 flex size-16 items-center justify-center rounded-2xl bg-[#1e3a5f]">
+                                    <Icon className="size-8 text-white" />
+                                </div>
+                                <h3 className="text-lg font-semibold text-primary">{item.title}</h3>
+                                <p className="mt-2 text-md text-tertiary">{item.desc}</p>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        </section>
+    );
+};
+
+// ─── Feature icon box ───
 interface FeatureIconBoxProps {
     icon: React.FC<{ className?: string }>;
     title: string;
@@ -180,26 +206,26 @@ const FeatureIconBox = ({ icon: Icon, title, subtitle }: FeatureIconBoxProps) =>
     </div>
 );
 
-// ─── Simple, Flexible Financing (FeaturesIntegrationsIcons04 pattern) ───
-const SimpleFlexibleFinancing = () => {
+// ─── Why Offer VinTraxx Capital ───
+const WhyOfferCapital = () => {
     return (
         <section className="bg-primary py-16 md:py-24">
             <div className="mx-auto w-full max-w-container px-4 md:px-8">
                 <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
-                    <span className="text-sm font-semibold text-brand-secondary md:text-md">Capital Solutions</span>
-                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">Simple, Flexible Financing</h2>
+                    <span className="text-sm font-semibold text-brand-secondary md:text-md">For Your Business</span>
+                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">Why Offer VinTraxx Capital?</h2>
                     <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">
-                        Get the capital you need with transparent terms and no surprises. Built exclusively for auto dealers.
+                        Turn &ldquo;I can&apos;t afford it right now&rdquo; into &ldquo;Yes, let&apos;s do it.&rdquo; Boost your average ticket size and close more customers.
                     </p>
                 </div>
 
                 <div className="mt-12 md:mt-16">
                     <ul className="grid w-full grid-cols-1 justify-items-center gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-y-16">
-                        <li><FeatureIconBox icon={CurrencyDollar} title="Lines Up to $5,000,000" subtitle="Flexible credit lines scaled to your dealership size and growth goals." /></li>
-                        <li><FeatureIconBox icon={TrendUp01} title="0.75% Floor Rate" subtitle="Competitive floor plan rates with no hidden interest or compounding fees." /></li>
-                        <li><FeatureIconBox icon={FileCheck02} title="Digital Titling & Payoffs" subtitle="Automated title management and instant payoff processing saves you hours." /></li>
-                        <li><FeatureIconBox icon={Clock} title="Same-Day Funding" subtitle="Approved funds deposited same day so you never miss an auction opportunity." /></li>
-                        <li><FeatureIconBox icon={ShieldTick} title="No Curtailment for 60 Days" subtitle="Hold inventory longer without penalty—sell on your timeline, not ours." /></li>
+                        <li><FeatureIconBox icon={CurrencyDollar} title="$1,000 to $25,000 Financing" subtitle="Offer customers flexible financing for accessories, service repairs, tires, wheels, and more." /></li>
+                        <li><FeatureIconBox icon={CreditCard02} title="Easy Checkout Integration" subtitle="Add financing as a payment option right at your counter or service desk — seamless for staff and customers." /></li>
+                        <li><FeatureIconBox icon={Clock} title="Same-Day Funding" subtitle="Get paid the same day your customer is approved. No waiting, no delays." /></li>
+                        <li><FeatureIconBox icon={ShieldTick} title="High Approval Rates" subtitle="Our technology approves more customers so you close more deals — even those with less-than-perfect credit." /></li>
+                        <li><FeatureIconBox icon={ZapFast} title="Quick 2-Minute Application" subtitle="Customers apply from their phone or your terminal. Decisions in seconds, not days." /></li>
                         <li><FeatureIconBox icon={Lock01} title="Secure & Compliant" subtitle="Bank-grade security with full regulatory compliance across all 50 states." /></li>
                     </ul>
                 </div>
@@ -208,8 +234,9 @@ const SimpleFlexibleFinancing = () => {
     );
 };
 
-// ─── Built for Every Business (FeaturesLargeScreenMockup02 pattern) ───
+// ─── Built for Every Business ───
 const industries = [
+    { icon: Car01, title: "Car Dealerships" },
     { icon: Heart, title: "MedSpa" },
     { icon: Home05, title: "Roofing & Construction" },
     { icon: Building07, title: "Furniture Stores" },
@@ -217,7 +244,6 @@ const industries = [
     { icon: Heart, title: "Dentist Offices" },
     { icon: Tool01, title: "Tire & Wheel Centers" },
     { icon: Heart, title: "Jewelry Stores" },
-    { icon: Car01, title: "Car Dealerships" },
     { icon: Truck01, title: "Golf Cart Dealers" },
     { icon: ZapFast, title: "HVAC Companies" },
 ];
@@ -231,14 +257,14 @@ const BuiltForEveryBusiness = () => {
                         <span className="text-sm font-semibold text-brand-secondary md:text-md">Industries We Serve</span>
                         <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">Built for Every Business</h2>
                         <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">
-                            If you sell a product or service, VinTraxx Capital can help you offer financing.
+                            If you sell a product or service, VinTraxx Capital can help you offer financing to your customers.
                         </p>
                     </div>
                 </div>
             </div>
 
             <div className="mx-auto -mt-17 w-full max-w-container px-4 pt-1 md:-mt-26 md:px-8 md:pt-2">
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                     {industries.map((item) => (
                         <div key={item.title} className="flex flex-col items-center gap-3 rounded-xl bg-primary px-4 py-6 text-center shadow-xs ring-1 ring-secondary">
                             <item.icon className="size-6 text-[#c41e3a]" />
@@ -251,7 +277,7 @@ const BuiltForEveryBusiness = () => {
     );
 };
 
-// ─── The Smarter Financing Partner (MetricsSimpleCenteredText pattern) ───
+// ─── The Smarter Financing Partner ───
 const SmarterFinancingPartner = () => {
     return (
         <section className="bg-primary py-16 md:py-24">
@@ -261,18 +287,18 @@ const SmarterFinancingPartner = () => {
                         <FeaturedIcon icon={ZapFast} color="brand" theme="light" size="xl" />
                         <h2 className="mt-4 text-display-sm font-semibold text-primary md:mt-6 md:text-display-md">The Smarter Financing Partner</h2>
                         <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">
-                            We do things differently. Compare us to traditional floor plan lenders and see why dealers are switching.
+                            We do things differently. See why businesses choose VinTraxx Capital over traditional consumer financing options.
                         </p>
                     </div>
 
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                         {[
-                            { title: "Fast Digital Application", desc: "Apply online in 10 minutes—no paper forms, no faxes, no waiting." },
-                            { title: "Transparent Pricing", desc: "What you see is what you get. No hidden fees, no surprise charges." },
-                            { title: "VinTraxx Ecosystem", desc: "Fully integrated with VinLane IMS, Recon, SmartScan, and more." },
+                            { title: "Fast Digital Application", desc: "Customers apply in under 2 minutes — no paper forms, no hassle." },
+                            { title: "Transparent Pricing", desc: "What you see is what you get. No hidden fees, no surprise charges for you or your customer." },
+                            { title: "Increase Average Ticket Size", desc: "Customers spend more when they can pay over time. Watch your revenue grow." },
                             { title: "Dedicated Account Manager", desc: "A real person who knows your business and answers your calls." },
-                            { title: "Flexible Curtailment", desc: "60-day curtailment-free hold period on every vehicle." },
-                            { title: "Same-Day Funding Available", desc: "Get funds the same day so you never miss a deal at auction." },
+                            { title: "Works Across Departments", desc: "Parts counter, service department, accessories — offer financing everywhere you sell." },
+                            { title: "Same-Day Funding Available", desc: "Get paid the same day so your cash flow never skips a beat." },
                         ].map((item) => (
                             <div key={item.title} className="flex flex-col rounded-2xl bg-secondary p-6 ring-1 ring-secondary">
                                 <h3 className="text-md font-semibold text-primary">{item.title}</h3>
@@ -286,7 +312,7 @@ const SmarterFinancingPartner = () => {
     );
 };
 
-// ─── Simple Onboarding (CTACardHorizontal pattern) ───
+// ─── Simple Onboarding ───
 const SimpleOnboarding = () => {
     return (
         <section className="bg-primary pb-16 md:pb-24">
@@ -296,12 +322,10 @@ const SimpleOnboarding = () => {
                     <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">Simple Onboarding. Fast Results.</h2>
                 </div>
 
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 md:grid-cols-2">
                     {[
-                        { step: "1", title: "Apply Online", desc: "Complete our simple digital application in under 10 minutes." },
-                        { step: "2", title: "Get Approved", desc: "Receive your credit line approval within 24–72 hours." },
-                        { step: "3", title: "Stock Your Lot", desc: "Use your floor plan to buy at auction, trade-ins, or private party." },
-                        { step: "4", title: "Sell & Grow", desc: "Pay off as you sell and reinvest to keep your lot stocked." },
+                        { step: "1", title: "Sign Up Your Business", desc: "Complete our simple digital application in under 10 minutes." },
+                        { step: "2", title: "Start Offering Financing", desc: "Once approved, start offering financing to your customers immediately." },
                     ].map((item) => (
                         <div key={item.step} className="flex flex-col items-center text-center">
                             <div className="mb-4 flex size-14 items-center justify-center rounded-full bg-[#1e3a5f] text-xl font-bold text-white">{item.step}</div>
@@ -315,58 +339,23 @@ const SimpleOnboarding = () => {
     );
 };
 
-// ─── Testimonial (TestimonialSimpleCentered02 pattern) ───
-const TestimonialSection = () => {
-    return (
-        <section className="bg-secondary py-16 md:py-24">
-            <div className="mx-auto max-w-container px-4 md:px-8">
-                <figure className="flex w-full shrink-0 snap-start flex-col gap-8 text-center">
-                    <img
-                        alt="VinTraxx Capital"
-                        src={capitalLogo.src}
-                        className="mx-auto h-10"
-                        aria-hidden="true"
-                    />
-
-                    <blockquote className="text-display-sm font-medium text-primary md:text-display-lg">
-                        VinTraxx Capital helped us double our lot size in 6 months. The approval process was fast, the terms are fair, and the integration with VinLane is seamless.
-                    </blockquote>
-                    <figcaption className="flex justify-center">
-                        <div className="flex flex-col items-center gap-4">
-                            <Avatar alt="Mike Rodriguez" size="2xl" />
-                            <div className="flex flex-col gap-1">
-                                <p className="text-lg font-semibold text-primary">Mike Rodriguez</p>
-                                <cite className="text-md text-tertiary not-italic">Owner, Rodriguez Auto Group</cite>
-                            </div>
-                        </div>
-                    </figcaption>
-                </figure>
-            </div>
-        </section>
-    );
-};
-
-// ─── FAQ (landing-page-12 accordion style) ───
+// ─── FAQ ───
 const faqsCapital = [
     {
         question: "What types of businesses do you work with?",
-        answer: "We work with a wide range of industries including car dealerships, MedSpas, roofing & construction, furniture stores, vet clinics, dentist offices, HVAC companies, and more. If you sell a product or service, we can help you offer financing.",
+        answer: "We work with a wide range of industries including car dealerships, MedSpas, roofing & construction, furniture stores, vet clinics, dentist offices, HVAC companies, and more. If you sell a product or service, we can help you offer financing to your customers.",
     },
     {
         question: "How quickly can I get approved?",
-        answer: "Most applications are reviewed and approved within 24–72 hours. In many cases, same-day approval is available for qualified businesses.",
+        answer: "Most business applications are reviewed and approved within 24–72 hours. Once approved, your customers can start applying for financing immediately.",
     },
     {
-        question: "What are the interest rates?",
-        answer: "Our rates start at 0.75% with no hidden fees. Your specific rate depends on your credit profile, business size, and volume.",
+        question: "How much can my customers finance?",
+        answer: "Customers can finance between $1,000 and $25,000 for purchases at your business — whether it's accessories, service repairs, tires, wheels, or other products and services.",
     },
     {
-        question: "Is there a curtailment policy?",
-        answer: "We offer a 60-day curtailment-free hold period, giving you more time to sell without penalty.",
-    },
-    {
-        question: "How does it integrate with VinTraxx products?",
-        answer: "VinTraxx Capital is fully integrated with VinLane IMS, SmartScan, and Recon. Financed inventory automatically appears in your management system, and payoffs are processed instantly when you sell.",
+        question: "How does my business get paid?",
+        answer: "You receive the full amount upfront — typically same-day. Your customer then repays VinTraxx Capital directly in affordable installments. You never have to chase payments.",
     },
 ];
 
@@ -383,7 +372,7 @@ const CommonQuestions = () => {
             <div className="mx-auto max-w-container px-4 md:px-8">
                 <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
                     <h2 className="text-display-sm font-semibold text-primary md:text-display-md">Common Questions</h2>
-                    <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">Everything you need to know about VinTraxx Capital financing.</p>
+                    <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">Everything you need to know about offering VinTraxx Capital financing.</p>
                 </div>
 
                 <div className="mx-auto mt-12 max-w-3xl md:mt-16">
@@ -472,35 +461,35 @@ const CommonQuestions = () => {
     );
 };
 
-// ─── CTA (CTAScreenMockup01 pattern) ───
+// ─── CTA ───
 const CTASection = () => {
     return (
         <section className="bg-[#1e3a5f] py-16 md:py-24">
             <div className="mx-auto max-w-container px-4 text-center md:px-8">
                 <img src={capitalLogo.src} alt="VinTraxx Capital" className="mx-auto mb-6 h-14 brightness-0 invert" />
-                <h2 className="text-display-sm font-semibold text-white md:text-display-md">Ready to Grow with VinTraxx Capital?</h2>
+                <h2 className="text-display-sm font-semibold text-white md:text-display-md">Ready to Close More Deals?</h2>
                 <p className="mx-auto mt-4 max-w-2xl text-lg text-white/70 md:mt-6 md:text-xl">
-                    Join thousands of dealers who trust VinTraxx Capital for fast, flexible floor plan financing. Apply today and get approved in as little as 24 hours.
+                    Start offering financing to your customers today. Help them say yes to bigger purchases while you get paid upfront.
                 </p>
                 <div className="mt-8 flex flex-col-reverse items-stretch justify-center gap-3 sm:flex-row sm:items-start md:mt-12">
                     <Button color="secondary" size="xl">
                         Schedule a Call
                     </Button>
-                    <Button size="xl">Apply Now</Button>
+                    <Button size="xl">Get Started</Button>
                 </div>
             </div>
         </section>
     );
 };
 
-// ─── Newsletter (NewsletterSimpleLeft pattern) ───
+// ─── Newsletter ───
 const NewsletterSection = () => {
     return (
         <section className="bg-secondary py-16 md:py-24">
             <div className="mx-auto flex w-full max-w-container flex-col items-start justify-between gap-8 px-4 md:px-8 lg:flex-row">
                 <div>
                     <h1 className="text-display-sm font-semibold text-primary md:text-display-md">Stay in the loop</h1>
-                    <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">Get the latest on rates, programs, and dealer financing tips.</p>
+                    <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">Get the latest on programs, features, and business financing tips.</p>
                 </div>
                 <Form
                     onSubmit={(e) => {
@@ -536,13 +525,13 @@ const NewsletterSection = () => {
     );
 };
 
-// ─── Footer (same as other product pages) ───
+// ─── Footer ───
 const FooterLarge = () => {
     return (
         <footer className="dark-mode bg-primary py-12 md:pt-16">
             <div className="mx-auto max-w-container px-4 md:px-8">
                 <div className="flex flex-col justify-center text-center">
-                    <h2 className="text-display-xs font-semibold text-primary md:text-display-sm">Let&apos;s Revolutionize Your Dealership Together</h2>
+                    <h2 className="text-display-xs font-semibold text-primary md:text-display-sm">Let&apos;s Revolutionize Your Business Together</h2>
                     <p className="mt-2 text-md text-tertiary md:mt-4 md:text-xl">Get in touch to see how VinTraxx can boost your operations and profits.</p>
                     <div className="mt-8 flex flex-col-reverse gap-3 self-stretch md:mt-12 md:flex-row md:self-center">
                         <Button color="secondary" size="xl">Contact Us</Button>
@@ -563,7 +552,7 @@ const FooterLarge = () => {
                 </nav>
                 <div className="mt-12 flex flex-col justify-between gap-6 border-t border-secondary pt-8 md:mt-16 md:flex-row md:items-center">
                     <Link href="/"><UntitledLogo className="h-10" /></Link>
-                    <p className="text-md text-quaternary">© 2025 Vintraxx. All rights reserved.</p>
+                    <p className="text-md text-quaternary">&copy; 2025 Vintraxx. All rights reserved.</p>
                 </div>
             </div>
         </footer>
@@ -580,15 +569,15 @@ export default function VinTraxxCapitalPage() {
 
             <SectionDivider />
 
-            <SimpleFlexibleFinancing />
+            <HowItWorks />
+
+            <WhyOfferCapital />
 
             <BuiltForEveryBusiness />
 
             <SmarterFinancingPartner />
 
             <SimpleOnboarding />
-
-            <TestimonialSection />
 
             <CommonQuestions />
 

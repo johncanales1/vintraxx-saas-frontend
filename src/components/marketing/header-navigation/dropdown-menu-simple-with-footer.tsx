@@ -1,27 +1,15 @@
 "use client";
 
-import { Bank, Car01, Tool02, Scan, VideoRecorder, Globe01, ShoppingCart01, BarChart03 } from "@untitledui/icons";
+import { Bank, Car01, Scan, VideoRecorder, BarChart03 } from "@untitledui/icons";
 import { Button } from "@/components/base/buttons/button";
 import { NavMenuItemLink } from "./base-components/nav-menu-item";
 
 const items = [
     {
         title: "VinTraxx Capital",
-        subtitle: "Dealer-focused financing solutions with fast approvals and flexible terms.",
+        subtitle: "Short-term consumer financing that helps your customers pay for accessories, repairs, and more.",
         href: "/products/capital",
         Icon: Bank,
-    },
-    {
-        title: "VinLane IMS",
-        subtitle: "Intelligent inventory management with real-time tracking and analytics.",
-        href: "/products/vinlane",
-        Icon: Car01,
-    },
-    {
-        title: "VinTraxx Recon",
-        subtitle: "Streamline reconditioning with digital task management and vendor coordination.",
-        href: "/products/recon",
-        Icon: Tool02,
     },
     {
         title: "SmartScan",
@@ -30,22 +18,16 @@ const items = [
         Icon: Scan,
     },
     {
+        title: "VinLane IMS",
+        subtitle: "Intelligent inventory management with real-time tracking and analytics.",
+        href: "/products/vinlane",
+        Icon: Car01,
+    },
+    {
         title: "VinClips",
         subtitle: "Daily automated video marketing for TikTok, Facebook, and Instagram.",
         href: "/products/vinclips",
         Icon: VideoRecorder,
-    },
-    {
-        title: "VinTraxx Websites",
-        subtitle: "Professional dealer websites that convert visitors into leads.",
-        href: "/products/websites",
-        Icon: Globe01,
-    },
-    {
-        title: "Auto Mall",
-        subtitle: "Customer marketplace with real-time demand insights.",
-        href: "/products/automall",
-        Icon: ShoppingCart01,
     },
     {
         title: "Acquisition.io",

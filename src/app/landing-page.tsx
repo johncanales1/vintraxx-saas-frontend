@@ -15,13 +15,10 @@ import { isReactComponent } from "@/utils/is-react-component";
 import Link from "next/link";
 import videoThumbnail from "@/assets/videos/thumbnail.png";
 import acquisitionLogo from "@/assets/logo/brands/acquisition.png";
-import automallLogo from "@/assets/logo/brands/automall.png";
-import reconLogo from "@/assets/logo/brands/recon.png";
 import smartscanLogo from "@/assets/logo/brands/smartscan.png";
 import vinclipsLogo from "@/assets/logo/brands/vinclips.png";
 import vinlaneLogo from "@/assets/logo/brands/vinlane.png";
 import capitalLogo from "@/assets/logo/brands/capital.png";
-import websiteLogo from "@/assets/logo/brands/website.png";
 import writingImage1 from "@/assets/images/writings/image1.png";
 import writingImage2 from "@/assets/images/writings/image2.png";
 import writingImage3 from "@/assets/images/writings/image3.png";
@@ -109,16 +106,13 @@ const HeroAbstractAngles01 = () => {
 
                     <div className="relative z-10 mt-auto w-full px-4 pb-8 md:px-8 md:pb-12">
                         <div className="mx-auto max-w-5xl rounded-2xl bg-white/10 px-6 py-6 ring-1 ring-white/20 backdrop-blur-xl ring-inset md:px-10 md:py-8">
-                            <p className="mb-5 text-center text-md font-medium text-white/70">Join 7+ AI-Powered Products</p>
+                            <p className="mb-5 text-center text-md font-medium text-white/70">Our AI-Powered Products</p>
                             <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 xl:gap-x-8">
                                 <img alt="Capital" src={capitalLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
-                                <img alt="Acquisition" src={acquisitionLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
-                                <img alt="Automall" src={automallLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
-                                <img alt="Recon" src={reconLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
                                 <img alt="SmartScan" src={smartscanLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
-                                <img alt="VinClips" src={vinclipsLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
                                 <img alt="VinLane" src={vinlaneLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
-                                <img alt="Website" src={websiteLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
+                                <img alt="VinClips" src={vinclipsLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
+                                <img alt="Acquisition" src={acquisitionLogo.src} className="h-10 brightness-0 invert opacity-80 md:h-14" />
                             </div>
                         </div>
                     </div>
@@ -133,16 +127,13 @@ const SocialProofFullWidth = () => {
         <section className="bg-primary pb-16 md:pb-24">
             <div className="mx-auto max-w-container px-4 md:px-8">
                 <div className="flex flex-col gap-8">
-                    <p className="text-center text-md mt-16 font-medium text-tertiary">Join 7+ AI-Powered Products</p>
+                    <p className="text-center text-md mt-16 font-medium text-tertiary">Our AI-Powered Products</p>
                     <div className="flex flex-wrap justify-center gap-x-10 gap-y-6 xl:gap-x-8">
                         <img alt="Capital" src={capitalLogo.src} className="h-12 md:h-16" />
-                        <img alt="Acquisition" src={acquisitionLogo.src} className="h-12 md:h-16" />
-                        <img alt="Automall" src={automallLogo.src} className="h-12 md:h-16" />
-                        <img alt="Recon" src={reconLogo.src} className="h-12 md:h-16" />
                         <img alt="SmartScan" src={smartscanLogo.src} className="h-12 md:h-16" />
-                        <img alt="VinClips" src={vinclipsLogo.src} className="h-12 md:h-16" />
                         <img alt="VinLane" src={vinlaneLogo.src} className="h-12 md:h-16" />
-                        <img alt="Website" src={websiteLogo.src} className="h-12 md:h-16" />
+                        <img alt="VinClips" src={vinclipsLogo.src} className="h-12 md:h-16" />
+                        <img alt="Acquisition" src={acquisitionLogo.src} className="h-12 md:h-16" />
                     </div>
                 </div>
             </div>
@@ -196,12 +187,12 @@ const FeaturesTabsMockup07 = () => {
                                 subtitle: "Real-time inventory tracking across multiple lots, floorplan optimization, and one-click syncing to marketplaces.",
                             },
                             {
-                                title: "VinTraxx Recon - Streamline Reconditioning",
-                                subtitle: "Digital task management, vendor coordination, real-time cost tracking, and photo documentation to get vehicles frontline-ready faster.",
-                            },
-                            {
                                 title: "SmartScan - Appraise with Confidence",
                                 subtitle: "Advanced OBD scanning for comprehensive vehicle health assessments, professional reports, and AI-powered pricing recommendations.",
+                            },
+                            {
+                                title: "VinTraxx Capital - Finance Your Customers",
+                                subtitle: "Offer short-term financing at checkout so your customers can pay for accessories, repairs, tires, and more over time.",
                             },
                         ].map((item, index) => (
                             <li key={item.title} onClick={() => setCurrentTab(index)}>
@@ -243,10 +234,10 @@ const FeaturesTabsMockup07 = () => {
 
 const studies = [
     {
-        company: "VinLane",
-        quote: "VinLane streamlined our vehicle sourcing process, cutting acquisition time by 40%.",
-        background: "bg-[#52A0BF]",
-        logo: vinlaneLogo.src,
+        company: "VinTraxx Capital",
+        quote: "Offering financing at checkout increased our average ticket size and helped us close more service customers.",
+        background: "bg-[#1e3a5f]",
+        logo: capitalLogo.src,
         href: "#",
     },
     {
@@ -257,24 +248,10 @@ const studies = [
         href: "#",
     },
     {
-        company: "Automall",
-        quote: "Our dealership inventory turnover improved by 35% with real-time demand insights.",
-        background: "bg-[#24A7F7]",
-        logo: automallLogo.src,
-        href: "#",
-    },
-    {
-        company: "Acquisition",
-        quote: "Smarter pricing and faster sourcing helped us maximize profit on every vehicle.",
-        background: "bg-[#6A65F7]",
-        logo: acquisitionLogo.src,
-        href: "#",
-    },
-    {
-        company: "Recon",
-        quote: "Recon tools helped us reduce vehicle turnaround time and boost service efficiency.",
-        background: "bg-[#EB3F3F]",
-        logo: reconLogo.src,
+        company: "VinLane",
+        quote: "VinLane streamlined our vehicle sourcing process, cutting acquisition time by 40%.",
+        background: "bg-[#52A0BF]",
+        logo: vinlaneLogo.src,
         href: "#",
     },
     {
@@ -285,10 +262,10 @@ const studies = [
         href: "#",
     },
     {
-        company: "Website",
-        quote: "Our dealership website now converts 3x more leads with the new platform.",
-        background: "bg-[#06AFD1]",
-        logo: websiteLogo.src,
+        company: "Acquisition",
+        quote: "Smarter pricing and faster sourcing helped us maximize profit on every vehicle.",
+        background: "bg-[#6A65F7]",
+        logo: acquisitionLogo.src,
         href: "#",
     },
 ];
@@ -607,13 +584,10 @@ const CTASimpleLogos02 = () => {
                     </div>
                     <div className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-6 lg:mt-0">
                         <img alt="Capital" src={capitalLogo.src} className="h-10 md:h-12" />
-                        <img alt="VinLane" src={vinlaneLogo.src} className="h-10 md:h-12" />
                         <img alt="SmartScan" src={smartscanLogo.src} className="h-10 md:h-12" />
-                        <img alt="Automall" src={automallLogo.src} className="h-10 md:h-12" />
-                        <img alt="Acquisition" src={acquisitionLogo.src} className="h-10 md:h-12" />
-                        <img alt="Recon" src={reconLogo.src} className="h-10 md:h-12" />
+                        <img alt="VinLane" src={vinlaneLogo.src} className="h-10 md:h-12" />
                         <img alt="VinClips" src={vinclipsLogo.src} className="h-10 md:h-12" />
-                        <img alt="Website" src={websiteLogo.src} className="h-10 md:h-12" />
+                        <img alt="Acquisition" src={acquisitionLogo.src} className="h-10 md:h-12" />
                     </div>
                 </div>
             </div>
@@ -625,11 +599,10 @@ const footerNavList = [
     {
         label: "Products",
         items: [
-            { label: "VinLane IMS", href: "/products/vinlane" },
-            { label: "VinTraxx Recon", href: "/products/recon" },
+            { label: "VinTraxx Capital", href: "/products/capital" },
             { label: "SmartScan", href: "/products/smartscan" },
+            { label: "VinLane IMS", href: "/products/vinlane" },
             { label: "VinClips", href: "/products/vinclips" },
-            { label: "Auto Mall", href: "/products/automall" },
             { label: "Acquisition.io", href: "/products/acquisition" },
         ],
     },

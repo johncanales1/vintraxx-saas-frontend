@@ -6,6 +6,7 @@ import { Badge } from "@/components/base/badges/badges";
 import { Button } from "@/components/base/buttons/button";
 import { Form } from "@/components/base/form/form";
 import { Input } from "@/components/base/input/input";
+import { VideoPlayer } from "@/components/base/video-player/video-player";
 import { FeaturedIcon } from "@/components/foundations/featured-icon/featured-icon";
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
 import { Header } from "@/components/marketing/header-navigation/header";
@@ -14,49 +15,6 @@ import { cx } from "@/utils/cx";
 import Link from "next/link";
 import smartscanLogo from "@/assets/logo/brands/smartscan.png";
 import videoThumbnail from "@/assets/videos/thumbnail-1.jpg";
-
-const VideoEmbed = () => {
-    const [isPlaying, setIsPlaying] = useState(false);
-
-    return (
-        <div className="relative aspect-video w-full overflow-hidden rounded-xl shadow-3xl md:max-w-240 mx-auto">
-            {!isPlaying ? (
-                <button
-                    onClick={() => setIsPlaying(true)}
-                    className="group relative w-full h-full cursor-pointer"
-                >
-                    <img
-                        src={videoThumbnail.src}
-                        alt="SmartScan Demo Video"
-                        className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/30">
-                        <div className="flex size-16 items-center justify-center rounded-full bg-white/30 backdrop-blur transition duration-100 ease-linear group-hover:bg-white/40 md:size-20">
-                            <svg className="size-6 text-white md:size-8" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M8 5v14l11-7z" />
-                            </svg>
-                        </div>
-                    </div>
-                </button>
-            ) : (
-                <div className="relative w-full h-full">
-                    <iframe
-                        src="https://app.heygen.com/embeds/d29e787cfdac4e10a18691a9e507634a"
-                        className="absolute inset-0 w-full h-full"
-                        allow="autoplay"
-                        allowFullScreen
-                    />
-                    <button
-                        onClick={() => setIsPlaying(false)}
-                        className="absolute top-4 right-4 z-10 flex size-10 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur transition hover:bg-black/70"
-                    >
-                        <XClose className="size-5" />
-                    </button>
-                </div>
-            )}
-        </div>
-    );
-};
 
 const CheckItemText = (props: { size?: "sm" | "md" | "lg"; text?: string; color?: "primary" | "success" }) => {
     const { text, color, size } = props;
@@ -143,7 +101,15 @@ const HeroSection = () => {
                 </div>
 
                 <div className="relative mt-16 w-full max-w-container px-4 md:mx-auto md:px-8">
-                    <VideoEmbed />
+                    <div className="mx-auto flex justify-center">
+                        <VideoPlayer
+                            size="lg"
+                            thumbnailUrl={videoThumbnail.src}
+                            thumbnailAlt="Watch how SmartScan works — vehicle diagnostics demo"
+                            src="/assets/videos/SmartScan-Appraisals.mp4"
+                            className="aspect-video w-full overflow-hidden rounded-xl shadow-3xl md:max-w-240"
+                        />
+                    </div>
                 </div>
             </section>
         </div>
@@ -258,7 +224,7 @@ const CTASection = () => {
 };
 
 const footerNavList = [
-    { label: "Products", items: [{ label: "VinLane IMS", href: "/products/vinlane" }, { label: "VinTraxx Recon", href: "/products/recon" }, { label: "SmartScan", href: "/products/smartscan" }, { label: "VinClips", href: "/products/vinclips" }, { label: "Auto Mall", href: "/products/automall" }, { label: "Acquisition.io", href: "/products/acquisition" }] },
+    { label: "Products", items: [{ label: "VinTraxx Capital", href: "/products/capital" }, { label: "SmartScan", href: "/products/smartscan" }, { label: "VinLane IMS", href: "/products/vinlane" }, { label: "VinClips", href: "/products/vinclips" }, { label: "Acquisition.io", href: "/products/acquisition" }] },
     { label: "Company", items: [{ label: "About us", href: "/about" }, { label: "Careers", href: "/careers" }, { label: "Press", href: "/press" }, { label: "News", href: "/news" }, { label: "Contact", href: "/contact" }] },
     { label: "Resources", items: [{ label: "Blog", href: "/blog" }, { label: "Help Center", href: "/help" }, { label: "Documentation", href: "/docs" }, { label: "Training", href: "/training" }, { label: "Support", href: "/support" }] },
     { label: "For Dealers", items: [{ label: "Independent Dealers", href: "/dealers/independent" }, { label: "Franchise Dealers", href: "/dealers/franchise" }, { label: "Dealer Groups", href: "/dealers/groups" }, { label: "Success Stories", href: "/success-stories" }] },
